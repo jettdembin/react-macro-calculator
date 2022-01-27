@@ -1,10 +1,25 @@
 import React from "react";
+import GoalOptions from "./GoalOptions";
+import useFormState from "./hooks/useFormState";
 
 function WeightForm() {
+  const [weight, handleChange] = useFormState("");
+
   return (
-    <div className="WeightForm">
-      Weight Form
-    </div>
+    <>
+      <form>
+        <label>
+          Weight:
+          <input
+            type="text"
+            placeholder={weight ? weight : "Pounds"}
+            value={weight}
+            onChange={handleChange}
+          />
+        </label>
+      </form>
+      <GoalOptions weight={weight} />
+    </>
   );
 }
 

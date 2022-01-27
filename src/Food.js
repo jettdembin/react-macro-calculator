@@ -1,12 +1,7 @@
-import React from 'react';
-
-
+import React from "react";
+import { v4 as uuidv4 } from "uuid";
 
 function Food(props) {
-  return (
-    <>
-      {props.food}
-    </>
-  );
+  return <div key={uuidv4}>{props.food}</div>;
 }
 export default Food;

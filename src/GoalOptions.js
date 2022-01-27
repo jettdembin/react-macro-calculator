@@ -1,12 +1,28 @@
 import React from "react";
-import CalculateBtn from "./CalculateBtn";
+import GoalBtn from "./GoalBtn";
 
-function GoalOptions() {
+function GoalOptions(props) {
   return (
-    <div className="GoalOptions">
-      GoalOptions
-      <CalculateBtn />
-    </div>
+    <section className="Goal-cntr">
+      <div className="Goal-wrapper">
+        <div className="Goal">
+          <h4>Cut</h4>
+          <GoalBtn id="12" weight={props.weight} />
+        </div>
+      </div>
+      <div className="Goal-wrapper">
+        <div className="Goal">
+          <h4>Maintain</h4>
+          <GoalBtn id="15" weight={props.weight} />
+        </div>
+      </div>
+      <div className="Goal-wrapper">
+        <div className="Goal">
+          <h4>Bulk</h4>
+          <GoalBtn id="18" weight={props.weight} />
+        </div>
+      </div>
+    </section>
   );
 }
 
