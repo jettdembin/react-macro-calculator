@@ -4,6 +4,7 @@ import List from '@mui/material/List';
 import Divider from '@mui/material/Divider';
 import ListItem from '@mui/material/ListItem';
 import ListItemText from '@mui/material/ListItemText';
+import Food from "./Food";
 
 
 function FoodList(props) {
@@ -14,7 +15,7 @@ function FoodList(props) {
           <>
             <ListItem>
               <ListItemText>
-                {food.item}
+                <Food food={food.item}></Food>
               </ListItemText>
             </ListItem>
             <Divider/>

@@ -1,13 +1,13 @@
 import React from "react";
 import CalculateBtn from "./CalculateBtn";
 
-function MacroForm() {
+function GoalOptions() {
   return (
-    <div className="MacroApp">
-      Form
+    <div className="GoalOptions">
+      GoalOptions
       <CalculateBtn />
     </div>
   );
 }
 
-export default MacroForm;
+export default GoalOptions;
