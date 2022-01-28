@@ -1,5 +1,6 @@
 import React from "react";
 import Paper from "@mui/material/Paper";
+import MealAmount from "./MealAmount";
 import "./AdjustMeals.css";
 
 function AdjustMeals(props) {
@@ -12,24 +13,16 @@ function AdjustMeals(props) {
         <nav className="Adjust-nav-cntr">
           <ul className="Adjust-nav">
             <li>
-              <a className="Adjust-selection" id="1">
-                All
-              </a>
+              <MealAmount {...props} id="1" />
             </li>
             <li>
-              <a className="Adjust-selection" id="3">
-                3
-              </a>
+              <MealAmount {...props} id="3" />
             </li>
             <li>
-              <a className="Adjust-selection" id="4">
-                4
-              </a>
+              <MealAmount {...props} id="4" />
             </li>
             <li>
-              <a className="Adjust-selection" id="5">
-                5
-              </a>
+              <MealAmount {...props} id="5" />
             </li>
           </ul>
         </nav>

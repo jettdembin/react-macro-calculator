@@ -5,9 +5,9 @@ function GoalBtn(props) {
   return (
     <Paper>
       <button
-        onClick={() =>
+        onClick={() => {
+          props.updateCal(props.id);
           props.updateAll(
-            props.id,
             Math.round((props.calories * (Number(props.percentCarb) / 10)) / 4),
             Math.round(
               (props.calories * (Number(props.percentProtein) / 10)) / 4
@@ -16,8 +16,8 @@ function GoalBtn(props) {
             Number(props.percentCarb) * 10,
             Number(props.percentProtein) * 10,
             Number(props.percentFat) * 10
-          )
-        }
+          );
+        }}
       >
         Calculate
       </button>

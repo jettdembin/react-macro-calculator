@@ -10,36 +10,45 @@ import LogItems from "./LogItems";
 import useFormState from "./hooks/useFormState";
 
 function MacroApp() {
+  const [weight, handleChange] = useFormState("");
+  const [calories, handleCalculation] = useState(0);
   const initialWeight = [
     {
       carb: 0,
+      carbAdjusted: 0,
       protein: 0,
+      proteinAdjusted: 0,
       fat: 0,
+      fatAdjusted: 0,
       carbPercent: 0,
       proteinPercent: 0,
       fatPercent: 0,
     },
   ];
-  const [weight, handleChange] = useFormState("");
-  const [calories, handleCalculation] = useState(0);
-
   const [totals, setTotals] = useState(initialWeight);
-
-  const updateCarb = (carb) => {
-    setTotals([{ ...totals, carb: carb }]);
-  };
-  const updateProtein = (protein) => {
-    setTotals([{ ...totals, protein: protein }]);
-  };
-  const updateFat = (fat) => {
-    setTotals([{ ...totals, fat: fat }]);
+  const adjustments = [
+    {
+      carbAdjusted: 0,
+      proteinAdjusted: 0,
+      fatAdjusted: 0,
+    },
+  ];
+  const [adjustedMacros, adjustMacros] = useState(adjustments);
+  const updateMacros = (carb, protein, fat, meals) => {
+    adjustMacros([
+      {
+        ...adjustedMacros,
+        carbAdjusted: Math.round(carb / meals),
+        proteinAdjusted: Math.round(protein / meals),
+        fatAdjusted: Math.round(fat / meals),
+      },
+    ]);
   };
   const updateCal = (id) => {
     handleCalculation(Number(weight) * Number(id));
   };
 
   const updateAll = (
-    id,
     carb,
     protein,
     fat,
@@ -47,7 +56,6 @@ function MacroApp() {
     proteinPercent,
     fatPercent
   ) => {
-    handleCalculation(Number(weight) * Number(id));
     setTotals([
       {
         carb: carb,
@@ -79,10 +87,9 @@ function MacroApp() {
         weight={weight}
         calories={calories}
         updateCal={updateCal}
-        updateCarb={updateCarb}
-        updateProtein={updateProtein}
-        updateFat={updateFat}
         updateAll={updateAll}
+        updateMacros={updateMacros}
+        adjustedMacros={adjustedMacros}
         totals={totals}
         handleChange={handleChange}
       />

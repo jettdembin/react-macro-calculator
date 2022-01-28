@@ -1,40 +1,28 @@
-import React from "react";
+import React, { useState } from "react";
 import WeightForm from "./WeightForm";
 import GoalOptions from "./GoalOptions";
 import GoalMacro from "./GoalMacro";
 import AdjustMeals from "./AdjustMeals";
 
 function GoalCalculation(props) {
+  const [isAdjusted, setAdjusted] = useState(false);
+  const toggleIsAdjusted = () => {
+    setAdjusted(true);
+  };
+
   return (
     <div className="GoalCalculation">
       <WeightForm weight={props.weight} handleChange={props.handleChange} />
-      <GoalOptions
-        weight={props.weight}
-        calories={props.calories}
-        updateCal={props.updateCal}
-        updateCarb={props.updateCarb}
-        updateProtein={props.updateProtein}
-        updateFat={props.updateFat}
-        updateAll={props.updateAll}
-        totals={props.totals}
-      />
+      <GoalOptions {...props} />
       <GoalMacro
-        weight={props.weight}
-        calories={props.calories}
-        updateCal={props.updateCal}
-        updateCarb={props.updateCarb}
-        updateProtein={props.updateProtein}
-        updateFat={props.updateFat}
-        totals={props.totals}
+        {...props}
+        isAdjusted={isAdjusted}
+        toggleIsAdjusted={toggleIsAdjusted}
       />
       <AdjustMeals
-        weight={props.weight}
-        calories={props.calories}
-        updateCal={props.updateCal}
-        updateCarb={props.updateCarb}
-        updateProtein={props.updateProtein}
-        updateFat={props.updateFat}
-        totals={props.totals}
+        {...props}
+        isAdjusted={isAdjusted}
+        toggleIsAdjusted={toggleIsAdjusted}
       />
     </div>
   );
