@@ -1,0 +1,23 @@
+.Adjust-cntr {
+  display: grid;
+  place-items: center;
+}
+
+.Adjust-header {
+  text-align: center;
+}
+
+.Adjust-nav {
+  display: flex;
+  list-style-type: none;
+  outline: none;
+}
+
+.Adjust-nav > li > a{
+  border: 1px solid rgb(0, 106, 255);
+  color: rgb(9, 9, 9);
+  font-size: 1.2rem;
+  padding: .5rem 2rem;
+  border-radius: .2rem;
+  cursor: pointer;
+}
