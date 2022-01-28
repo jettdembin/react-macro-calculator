@@ -2,7 +2,7 @@ import React from "react";
 import Paper from "@mui/material/Paper";
 import "./AdjustMeals.css";
 
-function AdjustMeals() {
+function AdjustMeals(props) {
   return (
     <Paper>
       <div className="Adjust-cntr">

@@ -11,17 +11,17 @@ function GoalMacros(props) {
       </div>
       <div className="Macro-totals">
         <div>Carbohydrates</div>
-        <div>0g</div>
+        <div>{props.totals[0].carb}g</div>
         <div>0%</div>
       </div>
       <div className="Macro-totals">
         <div>Protein</div>
-        <div>0g</div>
+        <div>{props.totals[0].protein}g</div>
         <div>0%</div>
       </div>
       <div className="Macro-totals">
         <div>Fat</div>
-        <div>0g</div>
+        <div>{props.totals[0].fat}g</div>
         <div>0%</div>
       </div>
     </Paper>

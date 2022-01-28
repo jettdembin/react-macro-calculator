@@ -10,12 +10,30 @@ import LogItems from "./LogItems";
 import useFormState from "./hooks/useFormState";
 
 function MacroApp() {
-  const initialWeight = [{ weight: 0, calories: 0 }];
+  const initialWeight = [{ carb: 0, protein: 0, fat: 0 }];
   const [weight, handleChange] = useFormState("");
   const [calories, handleCalculation] = useState(0);
+
+  const [totals, setTotals] = useState(initialWeight);
+
+  const updateCarb = (carb) => {
+    setTotals([{ ...totals, carb: carb }]);
+  };
+  const updateProtein = (protein) => {
+    setTotals([{ ...totals, protein: protein }]);
+  };
+  const updateFat = (fat) => {
+    setTotals([{ ...totals, fat: fat }]);
+  };
   const updateCal = (id) => {
     handleCalculation(Number(weight) * Number(id));
   };
+
+  const updateAll = (id, carb, protein, fat) => {
+    handleCalculation(Number(weight) * Number(id));
+    setTotals([{ carb: carb, protein: protein, fat: fat }]);
+  };
+
   return (
     <Paper
       style={{
@@ -35,6 +53,11 @@ function MacroApp() {
         weight={weight}
         calories={calories}
         updateCal={updateCal}
+        updateCarb={updateCarb}
+        updateProtein={updateProtein}
+        updateFat={updateFat}
+        updateAll={updateAll}
+        totals={totals}
         handleChange={handleChange}
       />
       <LogItems />

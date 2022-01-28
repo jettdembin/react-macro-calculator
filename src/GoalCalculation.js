@@ -12,16 +12,29 @@ function GoalCalculation(props) {
         weight={props.weight}
         calories={props.calories}
         updateCal={props.updateCal}
+        updateCarb={props.updateCarb}
+        updateProtein={props.updateProtein}
+        updateFat={props.updateFat}
+        updateAll={props.updateAll}
+        totals={props.totals}
       />
       <GoalMacro
         weight={props.weight}
         calories={props.calories}
         updateCal={props.updateCal}
+        updateCarb={props.updateCarb}
+        updateProtein={props.updateProtein}
+        updateFat={props.updateFat}
+        totals={props.totals}
       />
       <AdjustMeals
         weight={props.weight}
         calories={props.calories}
         updateCal={props.updateCal}
+        updateCarb={props.updateCarb}
+        updateProtein={props.updateProtein}
+        updateFat={props.updateFat}
+        totals={props.totals}
       />
     </div>
   );

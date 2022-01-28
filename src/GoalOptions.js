@@ -12,6 +12,10 @@ function GoalOptions(props) {
             weight={props.weight}
             calories={props.calories}
             updateCal={props.updateCal}
+            updateAll={props.updateAll}
+            percentCarb="4"
+            percentProtein="4"
+            percentFat="2"
           />
         </div>
       </div>
@@ -23,6 +27,10 @@ function GoalOptions(props) {
             weight={props.weight}
             calories={props.calories}
             updateCal={props.updateCal}
+            updateAll={props.updateAll}
+            percentCarb="5"
+            percentProtein="2"
+            percentFat="3"
           />
         </div>
       </div>
@@ -34,6 +42,10 @@ function GoalOptions(props) {
             weight={props.weight}
             calories={props.calories}
             updateCal={props.updateCal}
+            updateAll={props.updateAll}
+            percentCarb="5"
+            percentProtein="1.5"
+            percentFat="3.5"
           />
         </div>
       </div>
