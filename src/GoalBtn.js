@@ -12,7 +12,10 @@ function GoalBtn(props) {
             Math.round(
               (props.calories * (Number(props.percentProtein) / 10)) / 4
             ),
-            Math.round((props.calories * (Number(props.percentFat) / 10)) / 9)
+            Math.round((props.calories * (Number(props.percentFat) / 10)) / 9),
+            Number(props.percentCarb) * 10,
+            Number(props.percentProtein) * 10,
+            Number(props.percentFat) * 10
           )
         }
       >
