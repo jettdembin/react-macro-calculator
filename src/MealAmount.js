@@ -19,7 +19,7 @@ function MealAmount(props) {
           }
         }}
       >
-        hi
+        {props.type}
       </button>
     </Paper>
   );

@@ -68,7 +68,7 @@ function MacroApp() {
   };
 
   return (
-    <Paper
+      <Paper
       style={{
         padding: 0,
         margin: 0,
@@ -82,18 +82,25 @@ function MacroApp() {
           <Typography color="inherit">Macro Calculator</Typography>
         </Toolbar>
       </AppBar>
-      <GoalCalculation
-        weight={weight}
-        calories={calories}
-        updateCal={updateCal}
-        updateAll={updateAll}
-        updateMacros={updateMacros}
-        adjustedMacros={adjustedMacros}
-        totals={totals}
-        handleChange={handleChange}
-      />
-      <LogItems />
-    </Paper>
+      <Grid container>
+      <Grid item xs={11} md={8} sm={4}></Grid>
+        <GoalCalculation
+          weight={weight}
+          calories={calories}
+          updateCal={updateCal}
+          updateAll={updateAll}
+          updateMacros={updateMacros}
+          adjustedMacros={adjustedMacros}
+          totals={totals}
+          handleChange={handleChange}
+        />
+        <LogItems weight={weight}
+          calories={calories}
+          updateCal={updateCal}
+          updateAll={updateAll}
+          updateMacros={updateMacros}/>
+      </Grid>
+      </Paper>
   );
 }
 

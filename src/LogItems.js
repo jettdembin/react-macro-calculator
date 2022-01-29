@@ -3,20 +3,21 @@ import Paper from "@mui/material/Paper";
 import FoodForm from "./FoodForm";
 import FoodList from "./FoodList";
 
-function LogItems() {
+function LogItems(props) {
   const initialFoods = [
-    { id: 1, item: "chicken" },
-    { id: 2, item: "apple" },
-    { id: 3, item: "bread" },
+    { id: 1, item: "chicken", carb: 0, protien: 0, fat: 0 },
   ];
   const [foods, setFoods] = useState(initialFoods);
-  const addFood = (newFoodItem) => {
-    setFoods([...foods, { id: 4, item: newFoodItem }]);
+  const addFood = (newFoodItem, carb, protein, fat) => {
+    setFoods([
+      ...foods,
+      { id: 4, item: newFoodItem, carb: carb, protien: protein, fat: fat },
+    ]);
   };
   return (
     <Paper>
-      <FoodForm addFood={addFood} />
-      <FoodList foods={foods} />
+      <FoodForm {...props} addFood={addFood} />
+      <FoodList {...props} foods={foods} />
     </Paper>
   );
 }

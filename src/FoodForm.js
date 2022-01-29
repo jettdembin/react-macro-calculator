@@ -3,56 +3,47 @@ import TextField from "@mui/material/TextField";
 import Paper from "@mui/material/Paper";
 import useFormState from "./hooks/useFormState";
 
-function FoodForm() {
+function FoodForm(props) {
   const [value, handleFoodChange, reset] = useFormState("");
   const [carb, handleProteinChange, resetProtein] = useFormState("");
   const [protein, handleCarbChange, resetCarb] = useFormState("");
   const [fat, handleFatChange, resetFat] = useFormState("");
 
   return (
-    <Paper>
-      <form onSubmit={(reset, resetProtein, resetCarb, resetFat)}>
-        <div className="Food-input-wrapper">
-          <div className="Food-input">
-            {value}
-            <input
-              type="text"
-              placeholder="Food Item"
-              value={value}
-              onChange={handleFoodChange}
-            />
-          </div>
-          <div>
-            {carb}
-            <input
-              className="Macro-input"
-              type="text"
-              placeholder="Carbs(grams)"
-              id="data-carb"
-              value={carb}
-              onChange={handleProteinChange}
-            />
-            {protein}
-            <input
-              className="Macro-input"
-              type="text"
-              placeholder="Protein(grams)"
-              id="data-protein"
-              value={protein}
-              onChange={handleCarbChange}
-            />
-            {fat}
-            <input
-              className="Macro-input"
-              type="text"
-              placeholder="Fat(grams)"
-              id="data-fat"
-              value={fat}
-              onChange={handleFatChange}
-            />
-          </div>
-          <button type="submit">Submit form</button>
-        </div>
+    <Paper style={{ margin: "1rem", padding: "1rem" }}>
+      <form
+        onSubmit={(e) => {
+          e.preventDefault();
+          props.addFood(value, carb, protein, fat);
+          reset();
+          resetCarb();
+          resetProtein();
+          resetFat();
+        }}
+      >
+        {value}
+        <TextField
+          value={value}
+          onChange={handleFoodChange}
+          margin="normal"
+          label="Add Food Item"
+          fullWidth
+        />
+        {carb}
+        <TextField
+          value={carb}
+          onChange={handleProteinChange}
+          label="Carbs(grams)"
+        />
+        {protein}
+        <TextField
+          value={protein}
+          onChange={handleCarbChange}
+          label="Protein(grams)"
+        />
+        {fat}
+        <TextField value={fat} onChange={handleFatChange} label="Fat(grams)" />
+        <button type="submit">Submit form</button>
       </form>
     </Paper>
   );
