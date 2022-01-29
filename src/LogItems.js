@@ -5,13 +5,13 @@ import FoodList from "./FoodList";
 
 function LogItems(props) {
   const initialFoods = [
-    { id: 1, item: "chicken", carb: 0, protien: 0, fat: 0 },
+    { id: 1, item: "chicken", carb: 0, protein: 0, fat: 0 },
   ];
   const [foods, setFoods] = useState(initialFoods);
   const addFood = (newFoodItem, carb, protein, fat) => {
     setFoods([
       ...foods,
-      { id: 4, item: newFoodItem, carb: carb, protien: protein, fat: fat },
+      { id: 4, item: newFoodItem, carb: carb, protein: protein, fat: fat },
     ]);
   };
   return (
