@@ -7,7 +7,6 @@ import IconButton from "@mui/material/IconButton";
 import EditIcon from "@mui/icons-material/Edit";
 import DeleteForeverIcon from "@mui/icons-material/DeleteForever";
 import ListItemSecondaryAction from "@material-ui/core/ListItemSecondaryAction";
-import { v4 as uuidv4 } from "uuid";
 
 function Food(props) {
   return (
@@ -20,7 +19,10 @@ function Food(props) {
           {props.food.fat}
         </ListItemText>
         <ListItemSecondaryAction>
-          <IconButton aria-label="Delete">
+          <IconButton
+            onClick={(e) => props.removeFood(e.target.id)}
+            aria-label="Delete"
+          >
             <DeleteForeverIcon></DeleteForeverIcon>
           </IconButton>
           <IconButton aria-label="Edit">
