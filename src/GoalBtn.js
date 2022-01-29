@@ -17,6 +17,10 @@ function GoalBtn(props) {
             Number(props.percentProtein) * 10,
             Number(props.percentFat) * 10
           );
+          if (props.firstAdjustment === true) {
+            props.toggleIsFirstAdjustment();
+            props.toggleIsAdjusted();
+          }
         }}
       >
         Calculate

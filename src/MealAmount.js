@@ -13,7 +13,10 @@ function MealAmount(props) {
         className="Adjust-selection"
         onClick={() => {
           props.updateMacros(carb, protein, fat, Number(props.id));
-          props.toggleIsAdjusted();
+          if (props.firstAdjustment === false) {
+            props.toggleIsFirstAdjustment();
+            props.toggleIsAdjusted();
+          }
         }}
       >
         hi

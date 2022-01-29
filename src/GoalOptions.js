@@ -9,10 +9,7 @@ function GoalOptions(props) {
           <h4>Cut</h4>
           <GoalBtn
             id="12"
-            weight={props.weight}
-            calories={props.calories}
-            updateCal={props.updateCal}
-            updateAll={props.updateAll}
+            {...props}
             percentCarb="4"
             percentProtein="4"
             percentFat="2"
@@ -24,10 +21,7 @@ function GoalOptions(props) {
           <h4>Maintain</h4>
           <GoalBtn
             id="15"
-            weight={props.weight}
-            calories={props.calories}
-            updateCal={props.updateCal}
-            updateAll={props.updateAll}
+            {...props}
             percentCarb="5"
             percentProtein="2"
             percentFat="3"
@@ -39,10 +33,7 @@ function GoalOptions(props) {
           <h4>Bulk</h4>
           <GoalBtn
             id="18"
-            weight={props.weight}
-            calories={props.calories}
-            updateCal={props.updateCal}
-            updateAll={props.updateAll}
+            {...props}
             percentCarb="5"
             percentProtein="1.5"
             percentFat="3.5"

@@ -6,23 +6,40 @@ import AdjustMeals from "./AdjustMeals";
 
 function GoalCalculation(props) {
   const [isAdjusted, setAdjusted] = useState(false);
+  const [firstAdjustment, setFirstAdjustment] = useState(false);
   const toggleIsAdjusted = () => {
-    setAdjusted(true);
+    setAdjusted(!isAdjusted);
+  };
+  const toggleIsFirstAdjustment = () => {
+    setFirstAdjustment(!firstAdjustment);
   };
 
   return (
     <div className="GoalCalculation">
       <WeightForm weight={props.weight} handleChange={props.handleChange} />
-      <GoalOptions {...props} />
+      <GoalOptions
+        {...props}
+        isAdjusted={isAdjusted}
+        toggleIsAdjusted={toggleIsAdjusted}
+        setAdjusted={setAdjusted}
+        toggleIsFirstAdjustment={toggleIsFirstAdjustment}
+        firstAdjustment={firstAdjustment}
+      />
       <GoalMacro
         {...props}
         isAdjusted={isAdjusted}
         toggleIsAdjusted={toggleIsAdjusted}
+        setAdjusted={setAdjusted}
+        toggleIsFirstAdjustment={toggleIsFirstAdjustment}
+        firstAdjustment={firstAdjustment}
       />
       <AdjustMeals
         {...props}
         isAdjusted={isAdjusted}
         toggleIsAdjusted={toggleIsAdjusted}
+        setAdjusted={setAdjusted}
+        toggleIsFirstAdjustment={toggleIsFirstAdjustment}
+        firstAdjustment={firstAdjustment}
       />
     </div>
   );

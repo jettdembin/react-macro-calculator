@@ -12,6 +12,9 @@ import useFormState from "./hooks/useFormState";
 function MacroApp() {
   const [weight, handleChange] = useFormState("");
   const [calories, handleCalculation] = useState(0);
+  const updateCal = (id) => {
+    handleCalculation(Number(weight) * Number(id));
+  };
   const initialWeight = [
     {
       carb: 0,
@@ -44,10 +47,6 @@ function MacroApp() {
       },
     ]);
   };
-  const updateCal = (id) => {
-    handleCalculation(Number(weight) * Number(id));
-  };
-
   const updateAll = (
     carb,
     protein,
