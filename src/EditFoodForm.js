@@ -12,12 +12,15 @@ function EditFoodForm({ allowEdit, id, item, toggleEdit }) {
         reset();
         toggleEdit();
       }}
+      style={{ marginLeft: "0", width: "50%" }}
     >
       <TextField
         margin="normal"
         value={value}
         onChange={handleChange}
+        style={{}}
         fullWidth
+        autoFocus
       ></TextField>
     </form>
   );

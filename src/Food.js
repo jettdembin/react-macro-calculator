@@ -16,7 +16,7 @@ function Food(props) {
   };
   return (
     <Paper>
-      <ListItem>
+      <ListItem style={{ height: "64px" }}>
         {isEditing ? (
           <EditFoodForm
             allowEdit={props.allowEdit}

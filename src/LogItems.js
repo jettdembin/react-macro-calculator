@@ -1,14 +1,17 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Paper from "@mui/material/Paper";
 import FoodForm from "./FoodForm";
 import FoodList from "./FoodList";
 import { v4 as uuidv4 } from "uuid";
 
 function LogItems(props) {
-  const initialFoods = [
-    { id: 1, item: "chicken", carb: 0, protein: 0, fat: 0, isEditing: false },
-  ];
+  const initialFoods = JSON.parse(window.localStorage.getItem("foods") || []);
   const [foods, setFoods] = useState(initialFoods);
+
+  useEffect(() => {
+    window.localStorage.setItem("foods", JSON.stringify(foods));
+  }, [foods]);
+
   const addFood = (newFoodItem, carb, protein, fat) => {
     setFoods([
       ...foods,
