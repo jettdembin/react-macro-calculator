@@ -6,7 +6,7 @@ import { v4 as uuidv4 } from "uuid";
 
 function LogItems(props) {
   const initialFoods = [
-    { id: 1, item: "chicken", carb: 0, protein: 0, fat: 0 },
+    { id: 1, item: "chicken", carb: 0, protein: 0, fat: 0, isEditing: false },
   ];
   const [foods, setFoods] = useState(initialFoods);
   const addFood = (newFoodItem, carb, protein, fat) => {
@@ -23,12 +23,23 @@ function LogItems(props) {
   };
   const removeFood = (foodId) => {
     const updatedFoods = foods.filter((food) => food.id !== foodId);
-    setFoods([updatedFoods]);
+    setFoods(updatedFoods);
+  };
+  const allowEdit = (foodId) => {
+    const edittingFood = foods.map((food) =>
+      food.id === foodId ? { ...food, isEditing: !food.isEditing } : food
+    );
+    setFoods(edittingFood);
   };
   return (
     <Paper>
       <FoodForm {...props} addFood={addFood} />
-      <FoodList {...props} foods={foods} removeFood={removeFood} />
+      <FoodList
+        {...props}
+        foods={foods}
+        removeFood={removeFood}
+        allowEdit={allowEdit}
+      />
     </Paper>
   );
 }

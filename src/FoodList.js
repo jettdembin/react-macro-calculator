@@ -32,12 +32,7 @@ function FoodList(props) {
       <List>
         {props.foods.map((food) => (
           <>
-            <Food
-              food={food}
-              id={food.id}
-              key={food.id}
-              removeFood={props.removeFood}
-            ></Food>
+            <Food food={food} id={food.id} key={food.id} {...props}></Food>
             <Divider />
           </>
         ))}
