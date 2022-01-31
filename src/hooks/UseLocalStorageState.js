@@ -1,13 +1,13 @@
-import {useState, useEffect} from "react";
+import { useState, useEffect } from "react";
 
-function UseLocalStorageState(key, defaultVal) {
+function useLocalStorageState(key, defaultVal) {
   //mske piece of state, based off of value in localStorage (or default)
   const [state, setState] = useState(() => {
     let val;
     try {
-      val = JSON.parse(window.localStorage.getItem(key) || String(defaultVal))
-    } catch(e) {
-      val=defaultVal;
+      val = JSON.parse(window.localStorage.getItem(key) || String(defaultVal));
+    } catch (e) {
+      val = defaultVal;
     }
     return val;
   });
@@ -18,4 +18,4 @@ function UseLocalStorageState(key, defaultVal) {
   return [state, setState];
 }
 
-export default UseLocalStorageState;
+export default useLocalStorageState;
