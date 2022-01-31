@@ -25,9 +25,9 @@ function LogItems(props) {
     const updatedFoods = foods.filter((food) => food.id !== foodId);
     setFoods(updatedFoods);
   };
-  const allowEdit = (foodId) => {
+  const allowEdit = (foodId, item) => {
     const edittingFood = foods.map((food) =>
-      food.id === foodId ? { ...food, isEditing: !food.isEditing } : food
+      food.id === foodId ? { ...food, item: item } : food
     );
     setFoods(edittingFood);
   };

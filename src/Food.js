@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import EditFoodForm from "./EditFoodForm";
 import Paper from "@mui/material/Paper";
 import ListItem from "@mui/material/ListItem";
 import ListItemText from "@mui/material/ListItemText";
@@ -17,7 +18,12 @@ function Food(props) {
     <Paper>
       <ListItem>
         {isEditing ? (
-          <h1>Edit</h1>
+          <EditFoodForm
+            allowEdit={props.allowEdit}
+            id={props.food.id}
+            item={props.food.item}
+            toggleEdit={toggleEdit}
+          ></EditFoodForm>
         ) : (
           <>
             <ListItemText>
