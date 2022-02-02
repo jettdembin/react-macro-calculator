@@ -36,9 +36,6 @@ function Food(props) {
             <ListItemSecondaryAction>
               <IconButton
                 onClick={() => {
-                  props.handleCarbDeleted(props.remainingCarb, food.carb);
-                  props.handleProteinDeleted(props.remainingProtein, food.protein);
-                  props.handleFatDeleted(props.remainingFat, food.fat);
                   props.removeFood(food.id)
                 }}
                 aria-label="Delete"
