@@ -11,6 +11,20 @@ import useFormState from "./hooks/useFormState";
 
 function MacroApp() {
   const [weight, handleChange] = useFormState("");
+  const [goal, setGoal] = useState("");
+  const toggleGoal = (goal) => {
+    switch (goal) {
+      case "12":
+        setGoal("Cut");
+        break;
+      case "15":
+        setGoal("Maintain");
+        break;
+      case "18":
+        setGoal("Bulk");
+        break;
+    }
+  };
   const [calories, handleCalculation] = useState(0);
   const updateCal = (id) => {
     handleCalculation(Number(weight) * Number(id));
@@ -68,7 +82,7 @@ function MacroApp() {
   };
 
   return (
-      <Paper
+    <Paper
       style={{
         padding: 0,
         margin: 0,
@@ -83,8 +97,9 @@ function MacroApp() {
         </Toolbar>
       </AppBar>
       <Grid container>
-      <Grid item xs={11} md={8} sm={4}></Grid>
+        <Grid item xs={11} md={8} sm={4}></Grid>
         <GoalCalculation
+          toggleGoal={toggleGoal}
           weight={weight}
           calories={calories}
           updateCal={updateCal}
@@ -94,13 +109,17 @@ function MacroApp() {
           totals={totals}
           handleChange={handleChange}
         />
-        <LogItems weight={weight}
+        <LogItems
+          totals={totals}
+          weight={weight}
+          goal={goal}
           calories={calories}
           updateCal={updateCal}
           updateAll={updateAll}
-          updateMacros={updateMacros}/>
+          updateMacros={updateMacros}
+        />
       </Grid>
-      </Paper>
+    </Paper>
   );
 }
 

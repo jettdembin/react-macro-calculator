@@ -15,6 +15,9 @@ function FoodForm(props) {
         onSubmit={(e) => {
           e.preventDefault();
           props.addFood(value, carb, protein, fat);
+          props.handleCarbAdded(props.remainingCarb, carb);
+          props.handleProteinAdded(props.remainingProtein, protein);
+          props.handleFatAdded(props.remainingFat, fat);
           reset();
           resetCarb();
           resetProtein();

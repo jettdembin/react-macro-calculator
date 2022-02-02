@@ -6,6 +6,7 @@ function GoalBtn(props) {
     <Paper>
       <button
         onClick={() => {
+          props.toggleGoal(props.id);
           props.updateCal(props.id);
           props.updateAll(
             Math.round((props.calories * (Number(props.percentCarb) / 10)) / 4),

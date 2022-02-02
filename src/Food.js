@@ -10,6 +10,7 @@ import DeleteForeverIcon from "@mui/icons-material/DeleteForever";
 import ListItemSecondaryAction from "@material-ui/core/ListItemSecondaryAction";
 
 function Food(props) {
+  const food = props.food;
   const [isEditing, setIsEditing] = useState(false);
   const toggleEdit = () => {
     setIsEditing(!isEditing);
@@ -20,21 +21,26 @@ function Food(props) {
         {isEditing ? (
           <EditFoodForm
             allowEdit={props.allowEdit}
-            id={props.food.id}
-            item={props.food.item}
+            id={food.id}
+            item={food.item}
             toggleEdit={toggleEdit}
           ></EditFoodForm>
         ) : (
           <>
             <ListItemText>
-              {props.food.item}
-              {props.food.carb}
-              {props.food.protein}
-              {props.food.fat}
+              {food.item}
+              {food.carb}
+              {food.protein}
+              {food.fat}
             </ListItemText>
             <ListItemSecondaryAction>
               <IconButton
-                onClick={() => props.removeFood(props.food.id)}
+                onClick={() => {
+                  props.handleCarbDeleted(props.remainingCarb, food.carb);
+                  props.handleProteinDeleted(props.remainingProtein, food.protein);
+                  props.handleFatDeleted(props.remainingFat, food.fat);
+                  props.removeFood(food.id)
+                }}
                 aria-label="Delete"
               >
                 <DeleteForeverIcon></DeleteForeverIcon>

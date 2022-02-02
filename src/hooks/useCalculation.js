@@ -1,9 +1,13 @@
 import { useState } from "react";
 
 export default (initialVal) => {
-  const [calories, setCal] = useState(initialVal);
-  const handleSubmit = (e) => {
-    setCal(initialVal * Number(e.target.id));
+  const [macro, setMacro] = useState(initialVal);
+  const handleFoodDeletedMacroTotal = (totalNow, val) => {
+    setMacro(initialVal - (totalNow - val))
   };
-  return [calories, handleSubmit];
+  const handleFoodAddedMacroTotal = (totalNow, val) => {
+    setMacro(initialVal - (totalNow + val))
+  };
+  return [macro, handleFoodDeletedMacroTotal, handleFoodAddedMacroTotal];
 };
+
