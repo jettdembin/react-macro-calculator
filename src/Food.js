@@ -36,8 +36,11 @@ function Food(props) {
             <ListItemSecondaryAction>
               <IconButton
                 onClick={() => {
+                  props.handleCombinedCarb(-food.carb);
                   props.handleDeletedCarb(props.totalCombinedCarb, food.carb);
+                  props.handleCombinedProtein(-food.protein);
                   props.handleDeletedProtein(props.totalCombinedProtein, food.protein);
+                  props.handleCombinedFat(-food.fat);
                   props.handleDeletedFat(props.totalCombinedFat, food.fat);
                   props.removeFood(food.id);
                 }}

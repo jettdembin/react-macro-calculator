@@ -10,10 +10,10 @@ function LogItems(props) {
   const { foods, addFood, removeFood, allowEdit } = useFoodState(initialFoods);
 
   const [totalRemainingCarb, handleAddedCarb, handleDeletedCarb] =
-    useCalculation(props.totals[0].carb);
+    useCalculation(Number(props.totals[0].carb));
   const [totalRemainingProtein, handleAddedProtein, handleDeletedProtein] =
-    useCalculation(props.totals[0].protein);
-  const [totalRemainingFat, handleAddedFat, handleDeletedFat] = useCalculation(props.totals[0].fat);
+    useCalculation(Number(props.totals[0].protein));
+  const [totalRemainingFat, handleAddedFat, handleDeletedFat] = useCalculation(Number(props.totals[0].fat));
 
   let initialCarbTotal = 0;
   let initialProteinTotal = 0;
