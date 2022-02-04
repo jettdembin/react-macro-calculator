@@ -11,13 +11,24 @@ function FoodForm(props) {
 
   return (
     <Paper style={{ margin: "1rem", padding: "1rem" }}>
+      {props.totalRemainingCarb}/{props.totalRemainingProtein}/
+      {props.totalRemainingFat}
       <form
         onSubmit={(e) => {
           e.preventDefault();
           props.addFood(value, carb, protein, fat);
+<<<<<<< HEAD
           // props.handleCarbAdded(props.remainingCarb, carb);
           // props.handleProteinAdded(props.remainingProtein, protein);
           // props.handleFatAdded(props.remainingFat, fat);
+=======
+          props.handleCombinedCarb(carb);
+          props.handleAddedCarb(props.totalCombinedCarb, carb);
+          props.handleCombinedProtein(protein);
+          props.handleAddedProtein(props.totalCombinedProtein, protein);
+          props.handleCombinedFat(fat);
+          props.handleAddedFat(props.totalCombinedFat, fat);
+>>>>>>> fd4d4d6 (working showing of remaining macros for each on addition of new food item)
           reset();
           resetCarb();
           resetProtein();
