@@ -40,13 +40,10 @@ function LogItems(props) {
         addFood={addFood}
         totalRemainingCarb={totalRemainingCarb}
         handleAddedCarb={handleAddedCarb}
-        handleDeletedCarb={handleDeletedCarb}
         totalRemainingProtein={totalRemainingProtein}
         handleAddedProtein={handleAddedProtein}
-        handleDeletedProtein={handleDeletedProtein}
         totalRemainingFat={totalRemainingFat}
         handleAddedFat={handleAddedFat}
-        handleDeletedFat={handleDeletedFat}
         totalCombinedCarb={totalCombinedCarb}
         handleCombinedCarb={handleCombinedCarb}
         totalCombinedProtein={totalCombinedProtein}
@@ -60,12 +57,10 @@ function LogItems(props) {
         removeFood={removeFood}
         allowEdit={allowEdit}
         totalRemainingCarb={totalRemainingCarb}
-        handleAddedCarb={handleAddedCarb}
+        handleDeletedCarb={handleDeletedCarb}
         totalRemainingProtein={totalRemainingProtein}
-        handleAddedProtein={handleAddedProtein}
         handleDeletedProtein={handleDeletedProtein}
         totalRemainingFat={totalRemainingFat}
-        handleAddedFat={handleAddedFat}
         handleDeletedFat={handleDeletedFat}
         totalCombinedCarb={totalCombinedCarb}
         handleCombinedCarb={handleCombinedCarb}

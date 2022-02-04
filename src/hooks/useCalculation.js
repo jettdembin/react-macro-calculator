@@ -6,7 +6,7 @@ export default (initialVal) => {
     setMacro(Number(initialVal) - (totalNow + Number(val)))
   };
   const handleFoodDeletedMacroTotal = (totalNow, val) => {
-    setMacro(Number(initialVal) - (totalNow + Number(val)))
+    setMacro(Number(initialVal) - (totalNow - Number(val)))
   };
   return [macro, handleFoodAddedMacroTotal, handleFoodDeletedMacroTotal];
 };
