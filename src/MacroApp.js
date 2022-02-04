@@ -109,16 +109,10 @@ function MacroApp() {
           totals={totals}
           handleChange={handleChange}
         />
-<<<<<<< HEAD
         <LogItems
           totals={totals}
           weight={weight}
           goal={goal}
-=======
-        <LogItems 
-          totals={totals}
-          weight={weight}
->>>>>>> fd4d4d6 (working showing of remaining macros for each on addition of new food item)
           calories={calories}
           updateCal={updateCal}
           updateAll={updateAll}
