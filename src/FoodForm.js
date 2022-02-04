@@ -11,13 +11,18 @@ function FoodForm(props) {
 
   return (
     <Paper style={{ margin: "1rem", padding: "1rem" }}>
+      {props.totalRemainingCarb}/{props.totalRemainingProtein}/
+      {props.totalRemainingFat}
       <form
         onSubmit={(e) => {
           e.preventDefault();
           props.addFood(value, carb, protein, fat);
-          // props.handleCarbAdded(props.remainingCarb, carb);
-          // props.handleProteinAdded(props.remainingProtein, protein);
-          // props.handleFatAdded(props.remainingFat, fat);
+          props.handleCombinedCarb(carb);
+          props.handleAddedCarb(props.totalCombinedCarb, carb);
+          props.handleCombinedProtein(protein);
+          props.handleAddedProtein(props.totalCombinedProtein, protein);
+          props.handleCombinedFat(fat);
+          props.handleAddedFat(props.totalCombinedFat, fat);
           reset();
           resetCarb();
           resetProtein();
