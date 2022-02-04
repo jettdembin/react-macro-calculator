@@ -11,7 +11,7 @@ function FoodForm(props) {
 
   return (
     <Paper style={{ margin: "1rem", padding: "1rem" }}>
-      {props.totalRemainingCarb}/{props.totalRemainingProtein}/
+      {props.totalRemainingCarb} /{props.totalRemainingProtein} /
       {props.totalRemainingFat}
       <form
         onSubmit={(e) => {

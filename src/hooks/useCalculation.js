@@ -1,13 +1,13 @@
 import { useState } from "react";
 
 export default (initialVal) => {
-  const [macro, setMacro] = useState(initialVal);
-  const handleFoodDeletedMacroTotal = (totalNow, val) => {
-    setMacro(initialVal - (totalNow - val))
-  };
+  const [macro, setMacro] = useState(Number(initialVal));
   const handleFoodAddedMacroTotal = (totalNow, val) => {
-    setMacro(initialVal - (totalNow + val))
+    setMacro(Number(initialVal) - (totalNow + Number(val)))
   };
-  return [macro, handleFoodDeletedMacroTotal, handleFoodAddedMacroTotal];
+  const handleFoodDeletedMacroTotal = (totalNow, val) => {
+    setMacro(Number(initialVal) - (totalNow + Number(val)))
+  };
+  return [macro, handleFoodAddedMacroTotal, handleFoodDeletedMacroTotal];
 };
 
