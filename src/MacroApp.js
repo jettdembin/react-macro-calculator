@@ -82,8 +82,9 @@ function MacroApp() {
   };
 
   //set remaining amt storage to be passed down to all components
-  const initialRemaining = [{Carb:undefined,Protein:undefined,Fat:undefined}];
-  const [remaining, setRemaining] = useState(initialRemaining);
+  const initialRemaining= [{"Carb":undefined,"Protein":undefined,"Fat":undefined}];
+  const initialRemainingOption = JSON.parse(window.localStorage.getItem("remaining") || `${initialRemaining}`);
+  const [remaining, setRemaining] = useState(initialRemainingOption);
   const handleMacro = (totalRemaining, macro) => {
     if (initialRemaining[0].hasOwnProperty(macro)) {
       console.log("in remaining object");
