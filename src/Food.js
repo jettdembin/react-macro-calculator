@@ -42,6 +42,21 @@ function Food(props) {
                   props.handleDeletedProtein(props.totalCombinedProtein, food.protein);
                   props.handleCombinedFat(-food.fat);
                   props.handleDeletedFat(props.totalCombinedFat, food.fat);
+                  props.handleMacro(
+                    Number(props.totals[0].carb) -
+                      (props.totalCombinedCarb - Number(food.carb)),
+                    "Carb"
+                  );
+                  props.handleMacro(
+                    Number(props.totals[0].protein) -
+                      (props.totalCombinedProtein - Number(food.protein)),
+                    "Protein"
+                  );
+                  props.handleMacro(
+                    Number(props.totals[0].fat) -
+                      (props.totalCombinedFat - Number(food.fat)),
+                    "Fat"
+                  );
                   props.removeFood(food.id);
                 }}
                 aria-label="Delete"
