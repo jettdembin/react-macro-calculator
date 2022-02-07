@@ -22,6 +22,9 @@ function GoalBtn(props) {
             props.toggleIsFirstAdjustment();
             props.toggleIsAdjusted();
           }
+          props.handleMacro(props.totals[0].carb, "Carb");
+          props.handleMacro(props.totals[0].protein, "Protein");
+          props.handleMacro(props.totals[0].fat, "Fat");
         }}
       >
         Calculate

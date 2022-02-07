@@ -24,9 +24,21 @@ function FoodForm(props) {
           props.handleAddedProtein(props.totalCombinedProtein, protein);
           props.handleCombinedFat(fat);
           props.handleAddedFat(props.totalCombinedFat, fat);
-          props.handleMacro(props.totalRemainingCarb, "Carb");
-          props.handleMacro(props.totalRemainingProtein, "Protein");
-          props.handleMacro(props.totalRemainingFat, "Fat");
+          props.handleMacro(
+            Number(props.totals[0].carb) -
+              (props.totalCombinedCarb + Number(carb)),
+            "Carb"
+          );
+          props.handleMacro(
+            Number(props.totals[0].protein) -
+              (props.totalCombinedProtein + Number(protein)),
+            "Protein"
+          );
+          props.handleMacro(
+            Number(props.totals[0].fat) -
+              (props.totalCombinedFat + Number(fat)),
+            "Fat"
+          );
           reset();
           resetCarb();
           resetProtein();

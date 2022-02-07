@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Typography from "@mui/material/Typography";
 import Paper from "@mui/material/Paper";
 import AppBar from "@mui/material/AppBar";
@@ -81,6 +81,21 @@ function MacroApp() {
     ]);
   };
 
+  //set remaining amt storage to be passed down to all components
+  const initialRemaining = [{Carb:undefined,Protein:undefined,Fat:undefined}];
+  const [remaining, setRemaining] = useState(initialRemaining);
+  const handleMacro = (totalRemaining, macro) => {
+    if (initialRemaining[0].hasOwnProperty(macro)) {
+      console.log("in remaining object");
+      initialRemaining[0][`${macro}`] = Number(totalRemaining);
+      console.log(initialRemaining[0][`${macro}`]);
+      setRemaining(initialRemaining);
+    }
+  }
+  useEffect(()=> {
+    window.localStorage.setItem("remaining", JSON.stringify(remaining));
+  }, [remaining])
+
   return (
     <Paper
       style={{
@@ -99,6 +114,8 @@ function MacroApp() {
       <Grid container>
         <Grid item xs={11} md={8} sm={4}></Grid>
         <GoalCalculation
+          remaining={remaining}
+          handleMacro={handleMacro}
           toggleGoal={toggleGoal}
           weight={weight}
           calories={calories}
@@ -110,6 +127,8 @@ function MacroApp() {
           handleChange={handleChange}
         />
         <LogItems
+          remaining={remaining}
+          handleMacro={handleMacro}
           totals={totals}
           weight={weight}
           goal={goal}
