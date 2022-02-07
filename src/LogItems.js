@@ -4,9 +4,11 @@ import FoodForm from "./FoodForm";
 import FoodList from "./FoodList";
 import useFoodState from "./hooks/useFoodState";
 import useCalculation from "./hooks/useCalculation";
+import useRemainingState from "./hooks/useRemainingState";
 
 function LogItems(props) {
-  const initialFoods = JSON.parse(window.localStorage.getItem("foods") || []);
+  // const initialFoods = JSON.parse(window.localStorage.getItem("foods") || []);
+  const initialFoods = [];
   const { foods, addFood, removeFood, allowEdit } = useFoodState(initialFoods);
 
   const [totalRemainingCarb, handleAddedCarb, handleDeletedCarb] =
@@ -33,11 +35,27 @@ function LogItems(props) {
     setCombinedFat(totalCombinedFat + Number(fat));
   };
 
+  const initialRemaining = [{Carb:Number(props.totals[0].carb),Protein:Number(props.totals[0].protein),Fat:Number(props.totals[0].fat)}];
+  const [remaining, setRemaining] = useState(initialRemaining);
+  const handleMacro = (totalRemaining, macro) => {
+    if (remaining[0].hasOwnProperty(macro)) {
+      console.log("in remaining object");
+      remaining[0][`${macro}`] = totalRemaining;
+      console.log(remaining[0][`${macro}`]);
+      setRemaining(remaining[0]);
+    }
+  }
+  useEffect(()=> {
+    window.localStorage.setItem("remaining", JSON.stringify(remaining));
+  }, [remaining])
+
   return (
     <Paper>
       <FoodForm
         {...props}
         addFood={addFood}
+        remaining={remaining}
+        handleMacro={handleMacro}
         totalRemainingCarb={totalRemainingCarb}
         handleAddedCarb={handleAddedCarb}
         totalRemainingProtein={totalRemainingProtein}
