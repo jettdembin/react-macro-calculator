@@ -97,6 +97,40 @@ function MacroApp() {
     window.localStorage.setItem("remaining", JSON.stringify(remaining));
   }, [remaining])
 
+  //set totals in localstorage
+  const initialTotals= [{"Carb":undefined,"Protein":undefined,"Fat":undefined,"Goal":undefined,"Weight":undefined}];
+  const initialTotalsOption = JSON.parse(window.localStorage.getItem("storedTotals") || `${initialTotals}`);
+  const [storedTotals, setStoredTotals] = useState(initialTotalsOption);
+  const handleStoredTotal = (total, macro, goal, weight) => {
+    if (initialTotals[0].hasOwnProperty(macro)) {
+      console.log("in storedTotals object");
+      initialTotals[0][`${macro}`] = Number(total);
+      initialTotals[0]['Goal']=goal;
+      initialTotals[0]['Weight']=weight;
+      console.log(initialTotals[0][`${macro}`]);
+      setStoredTotals(initialTotals);
+    }
+  }
+  useEffect(()=> {
+    window.localStorage.setItem("storedTotals", JSON.stringify(storedTotals));
+  }, [storedTotals])
+
+  //set total percentages in storage
+  const initialPercentages= [{"Carbpercent":undefined,"Proteinpercent":undefined,"Fatpercent":undefined}];
+  const initialPercentagesOption = JSON.parse(window.localStorage.getItem("storedPercentages") || `${initialPercentages}`);
+  const [storedPercentages, setStoredPercent] = useState(initialPercentagesOption);
+  const handleStoredPercent = (percent, macro) => {
+    if (initialPercentages[0].hasOwnProperty(macro)) {
+      console.log("in storedPercentages object");
+      initialPercentages[0][`${macro}`] = Number(percent);
+      console.log(initialPercentages[0][`${macro}`]);
+      setStoredPercent(initialPercentages);
+    }
+  }
+  useEffect(()=> {
+    window.localStorage.setItem("storedPercentages", JSON.stringify(storedPercentages));
+  }, [storedPercentages])
+
   return (
     <Paper
       style={{
@@ -115,6 +149,10 @@ function MacroApp() {
       <Grid container>
         <Grid item xs={11} md={8} sm={4}></Grid>
         <GoalCalculation
+          storedPercentages={storedPercentages}
+          handleStoredPercent={handleStoredPercent}
+          storedTotals={storedTotals}
+          handleStoredTotal={handleStoredTotal}
           remaining={remaining}
           handleMacro={handleMacro}
           toggleGoal={toggleGoal}

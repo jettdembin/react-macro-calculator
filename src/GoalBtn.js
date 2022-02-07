@@ -25,6 +25,36 @@ function GoalBtn(props) {
           props.handleMacro(props.totals[0].carb, "Carb");
           props.handleMacro(props.totals[0].protein, "Protein");
           props.handleMacro(props.totals[0].fat, "Fat");
+          props.handleStoredTotal(
+            props.totals[0].carb,
+            "Carb",
+            props.id,
+            Number(props.weight)
+          );
+          props.handleStoredTotal(
+            props.totals[0].protein,
+            "Protein",
+            props.goal,
+            Number(props.weight)
+          );
+          props.handleStoredTotal(
+            props.totals[0].fat,
+            "Fat",
+            props.goal,
+            Number(props.weight)
+          );
+          props.handleStoredPercent(
+            Number(props.percentCarb) * 10,
+            "Carbpercent"
+          );
+          props.handleStoredPercent(
+            Number(props.percentProtein) * 10,
+            "Proteinpercent"
+          );
+          props.handleStoredPercent(
+            Number(props.percentFat) * 10,
+            "Fatpercent"
+          );
         }}
       >
         Calculate
