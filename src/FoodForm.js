@@ -14,7 +14,7 @@ function FoodForm(props) {
       {JSON.parse(window.localStorage.getItem("remaining"))[0]["Carb"]} /
       {JSON.parse(window.localStorage.getItem("remaining"))[0]["Protein"]} /
       {JSON.parse(window.localStorage.getItem("remaining"))[0]["Fat"]}
-      {props.goal}
+      {JSON.parse(window.localStorage.getItem("storedTotals"))[0]["Goal"]}
       <form
         onSubmit={(e) => {
           e.preventDefault();

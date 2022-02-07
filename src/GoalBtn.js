@@ -4,6 +4,7 @@ import Paper from "@mui/material/Paper";
 function GoalBtn(props) {
   return (
     <Paper>
+      {props.goal}
       <button
         onClick={() => {
           props.toggleGoal(props.id);
@@ -22,27 +23,16 @@ function GoalBtn(props) {
             props.toggleIsFirstAdjustment();
             props.toggleIsAdjusted();
           }
+          //set storage for remaining
           props.handleMacro(props.totals[0].carb, "Carb");
           props.handleMacro(props.totals[0].protein, "Protein");
           props.handleMacro(props.totals[0].fat, "Fat");
-          props.handleStoredTotal(
-            props.totals[0].carb,
-            "Carb",
-            props.id,
-            Number(props.weight)
-          );
-          props.handleStoredTotal(
-            props.totals[0].protein,
-            "Protein",
-            props.goal,
-            Number(props.weight)
-          );
-          props.handleStoredTotal(
-            props.totals[0].fat,
-            "Fat",
-            props.goal,
-            Number(props.weight)
-          );
+          //set storage for total macros and percentages
+          props.handleStoredTotal(props.totals[0].carb, "Carb");
+          props.handleStoredTotal(props.totals[0].protein, "Protein");
+          props.handleStoredTotal(props.totals[0].fat, "Fat");
+          props.handleStoredTotal(props.goal, "Goal");
+          props.handleStoredTotal(Number(props.weight), "Weight");
           props.handleStoredPercent(
             Number(props.percentCarb) * 10,
             "Carbpercent"

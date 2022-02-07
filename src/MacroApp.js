@@ -11,7 +11,20 @@ import useFormState from "./hooks/useFormState";
 
 function MacroApp() {
   const [weight, handleChange] = useFormState("");
-  const [goal, setGoal] = useState("");
+  const [goal, setGoal] = useState('');
+  // const toggleGoal = (goal) => {
+  //   switch (goal) {
+  //     case "12":
+  //       setGoal({goal:"Cut",multiplier:12});
+  //       break;
+  //     case "15":
+  //       setGoal({goal:"Maintain",multiplier:15});
+  //       break;
+  //     case "18":
+  //       setGoal({goal:"Bulk",multiplier:18});
+  //       break;
+  //   }
+  // };
   const toggleGoal = (goal) => {
     switch (goal) {
       case "12":
@@ -101,12 +114,10 @@ function MacroApp() {
   const initialTotals= [{"Carb":undefined,"Protein":undefined,"Fat":undefined,"Goal":undefined,"Weight":undefined}];
   const initialTotalsOption = JSON.parse(window.localStorage.getItem("storedTotals") || `${initialTotals}`);
   const [storedTotals, setStoredTotals] = useState(initialTotalsOption);
-  const handleStoredTotal = (total, macro, goal, weight) => {
+  const handleStoredTotal = (total, macro) => {
     if (initialTotals[0].hasOwnProperty(macro)) {
       console.log("in storedTotals object");
-      initialTotals[0][`${macro}`] = Number(total);
-      initialTotals[0]['Goal']=goal;
-      initialTotals[0]['Weight']=weight;
+      initialTotals[0][`${macro}`] = total;
       console.log(initialTotals[0][`${macro}`]);
       setStoredTotals(initialTotals);
     }
@@ -156,6 +167,7 @@ function MacroApp() {
           remaining={remaining}
           handleMacro={handleMacro}
           toggleGoal={toggleGoal}
+          goal={goal}
           weight={weight}
           calories={calories}
           updateCal={updateCal}
