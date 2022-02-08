@@ -7,37 +7,66 @@ function GoalMacros(props) {
     <Paper>
       <div>
         <h2>Calories Per Day</h2>
-        <h2>{props.calories}</h2>
+        <h2>
+          {JSON.parse(window.localStorage.getItem("storedTotals"))[0][
+            "Weight"
+          ] * (props.goal === "Cut" ? 12 : props.goal === "Maintain" ? 15 : 18)}
+        </h2>
       </div>
       <div className="Macro-totals">
         <div>Carbohydrates</div>
         <div>
           {props.isAdjusted
             ? props.adjustedMacros[0].carbAdjusted
-            : props.totals[0].carb}
+            : JSON.parse(window.localStorage.getItem("storedTotals"))[0][
+                "Carb"
+              ]}
           g
         </div>
-        <div>{props.totals[0].carbPercent}%</div>
+        <div>
+          {
+            JSON.parse(window.localStorage.getItem("storedPercentages"))[0][
+              "Carbpercent"
+            ]
+          }
+          %
+        </div>
       </div>
       <div className="Macro-totals">
         <div>Protein</div>
         <div>
           {props.isAdjusted
             ? props.adjustedMacros[0].proteinAdjusted
-            : props.totals[0].protein}
+            : JSON.parse(window.localStorage.getItem("storedTotals"))[0][
+                "Protein"
+              ]}
           g
         </div>
-        <div>{props.totals[0].proteinPercent}%</div>
+        <div>
+          {
+            JSON.parse(window.localStorage.getItem("storedPercentages"))[0][
+              "Proteinpercent"
+            ]
+          }
+          %
+        </div>
       </div>
       <div className="Macro-totals">
         <div>Fat</div>
         <div>
           {props.isAdjusted
             ? props.adjustedMacros[0].fatAdjusted
-            : props.totals[0].fat}
+            : JSON.parse(window.localStorage.getItem("storedTotals"))[0]["Fat"]}
           g
         </div>
-        <div>{props.totals[0].fatPercent}%</div>
+        <div>
+          {
+            JSON.parse(window.localStorage.getItem("storedPercentages"))[0][
+              "Fatpercent"
+            ]
+          }
+          %
+        </div>
       </div>
     </Paper>
   );

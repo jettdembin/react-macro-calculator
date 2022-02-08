@@ -80,10 +80,13 @@ function MacroApp() {
       },
     ]);
   };
-
   //set remaining amt storage to be passed down to all components
-  const initialRemaining= [{"Carb":undefined,"Protein":undefined,"Fat":undefined}];
-  const initialRemainingOption = JSON.parse(window.localStorage.getItem("remaining") || `${initialRemaining}`);
+  const initialRemaining = [
+    { Carb: undefined, Protein: undefined, Fat: undefined },
+  ];
+  const initialRemainingOption = JSON.parse(
+    window.localStorage.getItem("remaining") || `${initialRemaining}`
+  );
   const [remaining, setRemaining] = useState(initialRemainingOption);
   const handleMacro = (totalRemaining, macro) => {
     if (initialRemaining[0].hasOwnProperty(macro)) {
@@ -92,10 +95,65 @@ function MacroApp() {
       console.log(initialRemaining[0][`${macro}`]);
       setRemaining(initialRemaining);
     }
-  }
-  useEffect(()=> {
+  };
+  useEffect(() => {
     window.localStorage.setItem("remaining", JSON.stringify(remaining));
-  }, [remaining])
+  }, [remaining]);
+
+  //set totals in localstorage
+  const initialTotals = [
+    {
+      Carb: undefined,
+      Protein: undefined,
+      Fat: undefined,
+      Goal: undefined,
+      Weight: undefined,
+    },
+  ];
+  const initialTotalsOption = JSON.parse(
+    window.localStorage.getItem("storedTotals") || `${initialTotals}`
+  );
+  const [storedTotals, setStoredTotals] = useState(initialTotalsOption);
+  const handleStoredTotal = (total, macro) => {
+    if (initialTotals[0].hasOwnProperty(macro)) {
+      console.log("in storedTotals object");
+      initialTotals[0][`${macro}`] = total;
+      console.log(initialTotals[0][`${macro}`]);
+      setStoredTotals(initialTotals);
+    }
+  };
+  useEffect(() => {
+    window.localStorage.setItem("storedTotals", JSON.stringify(storedTotals));
+  }, [storedTotals]);
+
+  //set total percentages in storage
+  const initialPercentages = [
+    {
+      Carbpercent: undefined,
+      Proteinpercent: undefined,
+      Fatpercent: undefined,
+    },
+  ];
+  const initialPercentagesOption = JSON.parse(
+    window.localStorage.getItem("storedPercentages") || `${initialPercentages}`
+  );
+  const [storedPercentages, setStoredPercent] = useState(
+    initialPercentagesOption
+  );
+  const handleStoredPercent = (percent, macro) => {
+    if (initialPercentages[0].hasOwnProperty(macro)) {
+      console.log("in storedPercentages object");
+      initialPercentages[0][`${macro}`] = Number(percent);
+      console.log(initialPercentages[0][`${macro}`]);
+      setStoredPercent(initialPercentages);
+    }
+  };
+  useEffect(() => {
+    window.localStorage.setItem(
+      "storedPercentages",
+      JSON.stringify(storedPercentages)
+    );
+  }, [storedPercentages]);
 
   return (
     <Paper
@@ -115,6 +173,10 @@ function MacroApp() {
       <Grid container>
         <Grid item xs={11} md={8} sm={4}></Grid>
         <GoalCalculation
+          storedPercentages={storedPercentages}
+          handleStoredPercent={handleStoredPercent}
+          storedTotals={storedTotals}
+          handleStoredTotal={handleStoredTotal}
           remaining={remaining}
           handleMacro={handleMacro}
           toggleGoal={toggleGoal}
