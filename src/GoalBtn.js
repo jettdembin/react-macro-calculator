@@ -29,7 +29,10 @@ function GoalBtn(props) {
           props.handleStoredTotal(props.totals[0].carb, "Carb");
           props.handleStoredTotal(props.totals[0].protein, "Protein");
           props.handleStoredTotal(props.totals[0].fat, "Fat");
-          props.handleStoredTotal(props.goal, "Goal");
+          props.handleStoredTotal(
+            props.id === "12" ? "Cut" : props.id === "15" ? "Maintain" : "Bulk",
+            "Goal"
+          );
           props.handleStoredTotal(Number(props.weight), "Weight");
           props.handleStoredPercent(
             Number(props.percentCarb) * 10,
