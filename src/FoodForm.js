@@ -11,9 +11,10 @@ function FoodForm(props) {
 
   return (
     <Paper style={{ margin: "1rem", padding: "1rem" }}>
-      {JSON.parse(window.localStorage.getItem("remaining"))[0]["Carb"]} /
-      {JSON.parse(window.localStorage.getItem("remaining"))[0]["Protein"]} /
-      {JSON.parse(window.localStorage.getItem("remaining"))[0]["Fat"]}
+      {/* JSON.parse(window.localStorage.getItem("remaining"))[0]["Carb"]}  */}
+      {/* JSON.parse(window.localStorage.getItem("storedTotals"))[0]["Goal"] */}
+      {props.remaining[0].Carb} /{props.remaining[0].Protein} /
+      {props.remaining[0].Fat}
       {JSON.parse(window.localStorage.getItem("storedTotals"))[0]["Goal"]}
       <form
         onSubmit={(e) => {

@@ -84,9 +84,10 @@ function MacroApp() {
   const initialRemainingOption = JSON.parse(
     window.localStorage.getItem("remaining") || `${initialRemaining}`
   );
-  //6th state (working)
+  //5th state (working)
   const [remaining, setRemaining] = useState(initialRemainingOption);
   const handleMacro = (totalRemaining, macro) => {
+    console.log("in remaining");
     if (initialRemaining[0].hasOwnProperty(macro)) {
       initialRemaining[0][`${macro}`] = Number(totalRemaining);
       setRemaining(initialRemaining);
@@ -109,7 +110,7 @@ function MacroApp() {
   const initialTotalsOption = JSON.parse(
     window.localStorage.getItem("storedTotals") || `${initialTotals}`
   );
-  //7th state  (not showing correct state until 3rd for each macro, but goal and weight work on first)
+  //6th state
   const [storedTotals, setStoredTotals] = useState(initialTotalsOption);
   const handleStoredTotal = (total, macro) => {
     if (initialTotals[0].hasOwnProperty(macro)) {
@@ -132,7 +133,7 @@ function MacroApp() {
   const initialPercentagesOption = JSON.parse(
     window.localStorage.getItem("storedPercentages") || `${initialPercentages}`
   );
-  //8th state (last state)
+  //7th state (last state)
   const [storedPercentages, setStoredPercent] = useState(
     initialPercentagesOption
   );

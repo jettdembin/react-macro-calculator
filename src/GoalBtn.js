@@ -23,6 +23,7 @@ function GoalBtn(props) {
             props.toggleIsFirstAdjustment();
             props.toggleIsAdjusted();
           }
+          //set storage for totals on btn click
           props.handleMacro(carb, "Carb");
           props.handleMacro(protein, "Protein");
           props.handleMacro(fat, "Fat");
