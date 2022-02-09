@@ -7,7 +7,11 @@ function GoalMacros(props) {
     <Paper>
       {props.storedTotals[0].Carb}
       <div>
-        <h2>Calories Per Day</h2>
+        <h2>
+          {props.storedTotals[0].Carb > props.adjustedMacros[0].carbAdjusted
+            ? `Calories per Meal`
+            : `Calories per Day`}
+        </h2>
         <h2>
           {props.calories
             ? props.calories
