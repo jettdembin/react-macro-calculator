@@ -10,14 +10,19 @@ function GoalBtn(props) {
           props.updateCal(props.id);
           props.updateAll(
             Math.round((props.calories * (Number(props.percentCarb) / 10)) / 4),
+            "carb"
+          );
+          props.updateAll(
             Math.round(
               (props.calories * (Number(props.percentProtein) / 10)) / 4
             ),
-            Math.round((props.calories * (Number(props.percentFat) / 10)) / 9),
-            Number(props.percentCarb) * 10,
-            Number(props.percentProtein) * 10,
-            Number(props.percentFat) * 10
+            "protein"
           );
+          props.updateAll(
+            Math.round((props.calories * (Number(props.percentFat) / 10)) / 4),
+            "fat"
+          );
+
           if (props.firstAdjustment === true) {
             props.toggleIsFirstAdjustment();
             props.toggleIsAdjusted();

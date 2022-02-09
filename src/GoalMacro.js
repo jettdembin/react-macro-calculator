@@ -8,9 +8,12 @@ function GoalMacros(props) {
       <div>
         <h2>Calories Per Day</h2>
         <h2>
-          {JSON.parse(window.localStorage.getItem("storedTotals"))[0][
-            "Weight"
-          ] * (props.goal === "Cut" ? 12 : props.goal === "Maintain" ? 15 : 18)}
+          {props.calories
+            ? props.calories
+            : JSON.parse(window.localStorage.getItem("storedTotals"))[0][
+                "Weight"
+              ] *
+              (props.goal === "Cut" ? 12 : props.goal === "Maintain" ? 15 : 18)}
         </h2>
       </div>
       <div className="Macro-totals">
@@ -24,11 +27,12 @@ function GoalMacros(props) {
           g
         </div>
         <div>
-          {
+          {props.storedPercentages[0].Carbpercent}
+          {/* {
             JSON.parse(window.localStorage.getItem("storedPercentages"))[0][
               "Carbpercent"
             ]
-          }
+          } */}
           %
         </div>
       </div>
@@ -42,14 +46,7 @@ function GoalMacros(props) {
               ]}
           g
         </div>
-        <div>
-          {
-            JSON.parse(window.localStorage.getItem("storedPercentages"))[0][
-              "Proteinpercent"
-            ]
-          }
-          %
-        </div>
+        <div>{props.storedPercentages[0].Proteinpercent}%</div>
       </div>
       <div className="Macro-totals">
         <div>Fat</div>
@@ -60,11 +57,12 @@ function GoalMacros(props) {
           g
         </div>
         <div>
-          {
+          {props.storedPercentages[0].Fatpercent}
+          {/* {
             JSON.parse(window.localStorage.getItem("storedPercentages"))[0][
               "Fatpercent"
             ]
-          }
+          } */}
           %
         </div>
       </div>

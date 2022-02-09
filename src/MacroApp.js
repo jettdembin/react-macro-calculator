@@ -61,24 +61,21 @@ function MacroApp() {
       },
     ]);
   };
-  const updateAll = (
-    carb,
-    protein,
-    fat,
-    carbPercent,
-    proteinPercent,
-    fatPercent
-  ) => {
-    setTotals([
-      {
-        carb: carb,
-        protein: protein,
-        fat: fat,
-        carbPercent: carbPercent,
-        proteinPercent: proteinPercent,
-        fatPercent: fatPercent,
-      },
-    ]);
+  const initialTotalsMacros = [
+    {
+      carb: undefined,
+      protein: undefined,
+      fat: undefined,
+      carbPercent: undefined,
+      proteinPercent: undefined,
+      fatPercent: undefined,
+    },
+  ];
+  const updateAll = (total, macro) => {
+    if (initialTotalsMacros[0].hasOwnProperty(macro)) {
+      initialTotalsMacros[0][`${macro}`] = Number(total);
+      setTotals(initialTotalsMacros);
+    }
   };
   //set remaining amt storage to be passed down to all components
   const initialRemaining = [
@@ -90,9 +87,7 @@ function MacroApp() {
   const [remaining, setRemaining] = useState(initialRemainingOption);
   const handleMacro = (totalRemaining, macro) => {
     if (initialRemaining[0].hasOwnProperty(macro)) {
-      console.log("in remaining object");
       initialRemaining[0][`${macro}`] = Number(totalRemaining);
-      console.log(initialRemaining[0][`${macro}`]);
       setRemaining(initialRemaining);
     }
   };
@@ -116,9 +111,7 @@ function MacroApp() {
   const [storedTotals, setStoredTotals] = useState(initialTotalsOption);
   const handleStoredTotal = (total, macro) => {
     if (initialTotals[0].hasOwnProperty(macro)) {
-      console.log("in storedTotals object");
       initialTotals[0][`${macro}`] = total;
-      console.log(initialTotals[0][`${macro}`]);
       setStoredTotals(initialTotals);
     }
   };
@@ -142,9 +135,7 @@ function MacroApp() {
   );
   const handleStoredPercent = (percent, macro) => {
     if (initialPercentages[0].hasOwnProperty(macro)) {
-      console.log("in storedPercentages object");
       initialPercentages[0][`${macro}`] = Number(percent);
-      console.log(initialPercentages[0][`${macro}`]);
       setStoredPercent(initialPercentages);
     }
   };

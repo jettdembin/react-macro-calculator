@@ -15,7 +15,9 @@ function LogItems(props) {
     useCalculation(Number(props.totals[0].carb));
   const [totalRemainingProtein, handleAddedProtein, handleDeletedProtein] =
     useCalculation(Number(props.totals[0].protein));
-  const [totalRemainingFat, handleAddedFat, handleDeletedFat] = useCalculation(Number(props.totals[0].fat));
+  const [totalRemainingFat, handleAddedFat, handleDeletedFat] = useCalculation(
+    Number(props.totals[0].fat)
+  );
 
   let initialCarbTotal = 0;
   let initialProteinTotal = 0;
@@ -34,20 +36,6 @@ function LogItems(props) {
   const handleCombinedFat = (fat) => {
     setCombinedFat(totalCombinedFat + Number(fat));
   };
-
-  // const initialRemaining = [{Carb:Number(props.totals[0].carb),Protein:Number(props.totals[0].protein),Fat:Number(props.totals[0].fat)}];
-  // const [remaining, setRemaining] = useState(initialRemaining);
-  // const handleMacro = (totalRemaining, macro) => {
-  //   if (initialRemaining[0].hasOwnProperty(macro)) {
-  //     console.log("in remaining object");
-  //     initialRemaining[0][`${macro}`] = Number(totalRemaining);
-  //     console.log(initialRemaining[0][`${macro}`]);
-  //     setRemaining(initialRemaining);
-  //   }
-  // }
-  // useEffect(()=> {
-  //   window.localStorage.setItem("remaining", JSON.stringify(remaining));
-  // }, [remaining])
 
   return (
     <Paper>
