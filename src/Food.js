@@ -24,37 +24,38 @@ function Food(props) {
         {isEditing ? (
           <>
             <EditFoodForm
+              {...props}
               allowEdit={props.allowEdit}
               id={food.id}
               item={food.item}
               toggleEdit={toggleEdit}
             />
             <EditFoodCarbForm
+              {...props}
               allowEditCarb={props.allowEditCarb}
               id={food.id}
               carbEdit={food.carb}
-              toggleEdit={toggleEdit}
             />
             <EditFoodProteinForm
+              {...props}
               allowEditProtein={props.allowEditProtein}
               id={food.id}
               proteinEdit={food.protein}
-              toggleEdit={toggleEdit}
             />
             <EditFoodFatForm
+              {...props}
               allowEditFat={props.allowEditFat}
               id={food.id}
               fatEdit={food.fat}
-              toggleEdit={toggleEdit}
             />
           </>
         ) : (
           <>
             <ListItemText>
               {food.item}
-              {food.carb}
-              {food.protein}
-              {food.fat}
+              {food.carb ? food.carb : "0"}
+              {food.protein ? food.protein : "0"}
+              {food.fat ? food.fat : "0"}
             </ListItemText>
             <ListItemSecondaryAction>
               <IconButton
