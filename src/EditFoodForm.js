@@ -1,6 +1,6 @@
 import React from "react";
-import useFormState from "./hooks/useFormState";
 import TextField from "@mui/material/TextField";
+import useFormState from "./hooks/useFormState";
 
 function EditFoodForm({ allowEdit, id, item, toggleEdit }) {
   const [value, handleChange, reset] = useFormState(item);

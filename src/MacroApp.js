@@ -7,10 +7,10 @@ import Grid from "@mui/material/Grid";
 import GoalCalculation from "./GoalCalculation";
 import LogItems from "./LogItems";
 
-import useFormState from "./hooks/useFormState";
+import useFormDigitState from "./hooks/useFormDigitState";
 
 function MacroApp() {
-  const [weight, handleChange] = useFormState("");
+  const [weight, handleChange] = useFormDigitState("");
   const [goal, setGoal] = useState("");
   const toggleGoal = (goal) => {
     switch (goal) {
@@ -29,19 +29,6 @@ function MacroApp() {
   const updateCal = (id) => {
     handleCalculation(Number(weight) * Number(id));
   };
-  // const initialWeight = [
-  //   {
-  //     carb: 0,
-  //     carbAdjusted: 0,
-  //     protein: 0,
-  //     proteinAdjusted: 0,
-  //     fat: 0,
-  //     fatAdjusted: 0,
-  //     carbPercent: 0,
-  //     proteinPercent: 0,
-  //     fatPercent: 0,
-  //   },
-  // ];
   //4th state (shows correct state on 2nd click)
   // const [totals, setTotals] = useState(initialWeight);
   const adjustments = [
