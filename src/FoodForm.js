@@ -20,7 +20,7 @@ function FoodForm(props) {
       {props.remaining[0].Carb} /{props.remaining[0].Protein} /
       {props.remaining[0].Fat}
       {JSON.parse(window.localStorage.getItem("storedTotals"))[0]["Goal"]}
-      {props.totalCombinedCarb}/{props.remaining[0].Carb}/{chooseCarb}
+      {/* {props.totalCombinedCarb}/{props.remaining[0].Carb}/{chooseCarb} */}
       <form
         onSubmit={(e) => {
           e.preventDefault();

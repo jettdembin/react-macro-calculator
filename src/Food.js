@@ -36,25 +36,25 @@ function Food(props) {
             <ListItemSecondaryAction>
               <IconButton
                 onClick={() => {
-                  props.handleCombinedCarb(-food.carb);
-                  props.handleDeletedCarb(props.totalCombinedCarb, food.carb);
-                  props.handleCombinedProtein(-food.protein);
-                  props.handleDeletedProtein(props.totalCombinedProtein, food.protein);
-                  props.handleCombinedFat(-food.fat);
-                  props.handleDeletedFat(props.totalCombinedFat, food.fat);
+                  // props.handleCombinedCarb(-food.carb);
+                  // props.handleDeletedCarb(props.totalCombinedCarb, food.carb);
+                  // props.handleCombinedProtein(-food.protein);
+                  // props.handleDeletedProtein(
+                  //   props.totalCombinedProtein,
+                  //   food.protein
+                  // );
+                  // props.handleCombinedFat(-food.fat);
+                  // props.handleDeletedFat(props.totalCombinedFat, food.fat);
                   props.handleMacro(
-                    Number(props.totals[0].carb) -
-                      (props.totalCombinedCarb - Number(food.carb)),
+                    props.remaining[0].Carb + Number(food.carb),
                     "Carb"
                   );
                   props.handleMacro(
-                    Number(props.totals[0].protein) -
-                      (props.totalCombinedProtein - Number(food.protein)),
+                    props.remaining[0].Protein + Number(food.protein),
                     "Protein"
                   );
                   props.handleMacro(
-                    Number(props.totals[0].fat) -
-                      (props.totalCombinedFat - Number(food.fat)),
+                    props.remaining[0].Fat + Number(food.fat),
                     "Fat"
                   );
                   props.removeFood(food.id);
