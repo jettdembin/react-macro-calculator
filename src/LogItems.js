@@ -7,7 +7,15 @@ import useFoodState from "./hooks/useFoodState";
 function LogItems(props) {
   // const initialFoods = JSON.parse(window.localStorage.getItem("foods") || []);
   const initialFoods = [];
-  const { foods, addFood, removeFood, allowEdit } = useFoodState(initialFoods);
+  const {
+    foods,
+    addFood,
+    removeFood,
+    allowEdit,
+    allowEditCarb,
+    allowEditProtein,
+    allowEditFat,
+  } = useFoodState(initialFoods);
 
   return (
     <Paper>
@@ -17,6 +25,9 @@ function LogItems(props) {
         foods={foods}
         removeFood={removeFood}
         allowEdit={allowEdit}
+        allowEditCarb={allowEditCarb}
+        allowEditProtein={allowEditProtein}
+        allowEditFat={allowEditFat}
       />
     </Paper>
   );

@@ -1,5 +1,8 @@
 import React, { useState } from "react";
 import EditFoodForm from "./EditFoodForm";
+import EditFoodCarbForm from "./EditFoodCarbForm";
+import EditFoodProteinForm from "./EditFoodProteinForm";
+import EditFoodFatForm from "./EditFoodFatForm";
 import Paper from "@mui/material/Paper";
 import ListItem from "@mui/material/ListItem";
 import ListItemText from "@mui/material/ListItemText";
@@ -19,12 +22,32 @@ function Food(props) {
     <Paper>
       <ListItem style={{ height: "64px" }}>
         {isEditing ? (
-          <EditFoodForm
-            allowEdit={props.allowEdit}
-            id={food.id}
-            item={food.item}
-            toggleEdit={toggleEdit}
-          ></EditFoodForm>
+          <>
+            <EditFoodForm
+              allowEdit={props.allowEdit}
+              id={food.id}
+              item={food.item}
+              toggleEdit={toggleEdit}
+            />
+            <EditFoodCarbForm
+              allowEditCarb={props.allowEditCarb}
+              id={food.id}
+              carbEdit={food.carb}
+              toggleEdit={toggleEdit}
+            />
+            <EditFoodProteinForm
+              allowEditProtein={props.allowEditProtein}
+              id={food.id}
+              proteinEdit={food.protein}
+              toggleEdit={toggleEdit}
+            />
+            <EditFoodFatForm
+              allowEditFat={props.allowEditFat}
+              id={food.id}
+              fatEdit={food.fat}
+              toggleEdit={toggleEdit}
+            />
+          </>
         ) : (
           <>
             <ListItemText>
@@ -36,15 +59,6 @@ function Food(props) {
             <ListItemSecondaryAction>
               <IconButton
                 onClick={() => {
-                  // props.handleCombinedCarb(-food.carb);
-                  // props.handleDeletedCarb(props.totalCombinedCarb, food.carb);
-                  // props.handleCombinedProtein(-food.protein);
-                  // props.handleDeletedProtein(
-                  //   props.totalCombinedProtein,
-                  //   food.protein
-                  // );
-                  // props.handleCombinedFat(-food.fat);
-                  // props.handleDeletedFat(props.totalCombinedFat, food.fat);
                   props.handleMacro(
                     props.remaining[0].Carb + Number(food.carb),
                     "Carb"

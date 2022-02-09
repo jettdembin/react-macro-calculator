@@ -27,5 +27,24 @@ export default (initialFoods) => {
       );
       setFoods(edittingFood);
     },
+    allowEditCarb: (foodId, carb) => {
+      const edittingCarb = foods.map((food) =>
+        food.id === foodId ? { ...food, carb: carb } : food
+      );
+      setFoods(edittingCarb);
+    },
+    allowEditProtein: (foodId, protein) => {
+      const edittingProtein = foods.map((food) =>
+        food.id === foodId ? { ...food, protein: protein } : food
+      );
+      setFoods(edittingProtein);
+    },
+    allowEditFat: (foodId, fat) => {
+      const edittingFat = foods.map((food) =>
+        food.id === foodId ? { ...food, fat: fat } : food
+      );
+      console.log("in fat")
+      setFoods(edittingFat);
+    },
   };
 };

@@ -4,6 +4,7 @@ import useFormState from "./hooks/useFormState";
 
 function EditFoodForm({ allowEdit, id, item, toggleEdit }) {
   const [value, handleChange, reset] = useFormState(item);
+
   return (
     <form
       onSubmit={(e) => {
@@ -14,14 +15,14 @@ function EditFoodForm({ allowEdit, id, item, toggleEdit }) {
       }}
       style={{ marginLeft: "0", width: "50%" }}
     >
-      <TextField
-        margin="normal"
-        value={value}
-        onChange={handleChange}
-        style={{}}
-        fullWidth
-        autoFocus
-      ></TextField>
+      <div style={{ display: "flex" }}>
+        <TextField
+          margin="normal"
+          value={value}
+          onChange={handleChange}
+          autoFocus
+        ></TextField>
+      </div>
     </form>
   );
 }
