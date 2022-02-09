@@ -70,6 +70,7 @@ function MacroApp() {
       fat: undefined,
     },
   ];
+  //5th state
   const [totals, setTotals] = useState(initialTotalsMacros);
   const updateAll = (total, macro) => {
     if (initialTotalsMacros[0].hasOwnProperty(macro)) {
@@ -84,7 +85,7 @@ function MacroApp() {
   const initialRemainingOption = JSON.parse(
     window.localStorage.getItem("remaining") || `${initialRemaining}`
   );
-  //5th state (working)
+  //6th state (working)
   const [remaining, setRemaining] = useState(initialRemainingOption);
   const handleMacro = (totalRemaining, macro) => {
     console.log("in remaining");
@@ -110,7 +111,7 @@ function MacroApp() {
   const initialTotalsOption = JSON.parse(
     window.localStorage.getItem("storedTotals") || `${initialTotals}`
   );
-  //6th state
+  //7th state
   const [storedTotals, setStoredTotals] = useState(initialTotalsOption);
   const handleStoredTotal = (total, macro) => {
     if (initialTotals[0].hasOwnProperty(macro)) {
@@ -133,7 +134,7 @@ function MacroApp() {
   const initialPercentagesOption = JSON.parse(
     window.localStorage.getItem("storedPercentages") || `${initialPercentages}`
   );
-  //7th state (last state)
+  //8th state (last state)
   const [storedPercentages, setStoredPercent] = useState(
     initialPercentagesOption
   );
@@ -185,6 +186,7 @@ function MacroApp() {
           handleChange={handleChange}
         />
         <LogItems
+          storedTotals={storedTotals}
           remaining={remaining}
           handleMacro={handleMacro}
           totals={totals}
