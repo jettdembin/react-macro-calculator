@@ -5,6 +5,7 @@ import "./GoalMacro.css";
 function GoalMacros(props) {
   return (
     <Paper>
+      {props.storedTotals[0].Carb}
       <div>
         <h2>Calories Per Day</h2>
         <h2>
@@ -19,11 +20,12 @@ function GoalMacros(props) {
       <div className="Macro-totals">
         <div>Carbohydrates</div>
         <div>
+          {/* JSON.parse(window.localStorage.getItem("storedTotals"))[0][
+                "Carb"
+              ] */}
           {props.isAdjusted
             ? props.adjustedMacros[0].carbAdjusted
-            : JSON.parse(window.localStorage.getItem("storedTotals"))[0][
-                "Carb"
-              ]}
+            : props.storedTotals[0].Carb}
           g
         </div>
         <div>
@@ -41,9 +43,7 @@ function GoalMacros(props) {
         <div>
           {props.isAdjusted
             ? props.adjustedMacros[0].proteinAdjusted
-            : JSON.parse(window.localStorage.getItem("storedTotals"))[0][
-                "Protein"
-              ]}
+            : props.storedTotals[0].Protein}
           g
         </div>
         <div>{props.storedPercentages[0].Proteinpercent}%</div>
@@ -53,7 +53,7 @@ function GoalMacros(props) {
         <div>
           {props.isAdjusted
             ? props.adjustedMacros[0].fatAdjusted
-            : JSON.parse(window.localStorage.getItem("storedTotals"))[0]["Fat"]}
+            : props.storedTotals[0].Fat}
           g
         </div>
         <div>

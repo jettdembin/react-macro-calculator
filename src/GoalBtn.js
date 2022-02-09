@@ -2,40 +2,36 @@ import React from "react";
 import Paper from "@mui/material/Paper";
 
 function GoalBtn(props) {
+  let id = props.id;
+  let calories = Number(props.id) * Number(props.weight);
+  let carb = Math.round((calories * (Number(props.percentCarb) / 10)) / 4);
+  let protein = Math.round(
+    (calories * (Number(props.percentProtein) / 10)) / 4
+  );
+  let fat = Math.round((calories * (Number(props.percentFat) / 10)) / 9);
   return (
     <Paper>
       <button
         onClick={() => {
-          props.toggleGoal(props.id);
-          props.updateCal(props.id);
-          props.updateAll(
-            Math.round((props.calories * (Number(props.percentCarb) / 10)) / 4),
-            "carb"
-          );
-          props.updateAll(
-            Math.round(
-              (props.calories * (Number(props.percentProtein) / 10)) / 4
-            ),
-            "protein"
-          );
-          props.updateAll(
-            Math.round((props.calories * (Number(props.percentFat) / 10)) / 4),
-            "fat"
-          );
+          props.toggleGoal(id);
+          props.updateCal(id);
+          props.updateAll(carb, "carb");
+          props.updateAll(protein, "protein");
+          props.updateAll(fat, "fat");
 
           if (props.firstAdjustment === true) {
             props.toggleIsFirstAdjustment();
             props.toggleIsAdjusted();
           }
-          props.handleMacro(props.totals[0].carb, "Carb");
-          props.handleMacro(props.totals[0].protein, "Protein");
-          props.handleMacro(props.totals[0].fat, "Fat");
+          props.handleMacro(carb, "Carb");
+          props.handleMacro(protein, "Protein");
+          props.handleMacro(fat, "Fat");
           //set storage for total macros and percentages
-          props.handleStoredTotal(props.totals[0].carb, "Carb");
-          props.handleStoredTotal(props.totals[0].protein, "Protein");
-          props.handleStoredTotal(props.totals[0].fat, "Fat");
+          props.handleStoredTotal(carb, "Carb");
+          props.handleStoredTotal(protein, "Protein");
+          props.handleStoredTotal(fat, "Fat");
           props.handleStoredTotal(
-            props.id === "12" ? "Cut" : props.id === "15" ? "Maintain" : "Bulk",
+            id === "12" ? "Cut" : id === "15" ? "Maintain" : "Bulk",
             "Goal"
           );
           props.handleStoredTotal(Number(props.weight), "Weight");

@@ -29,20 +29,21 @@ function MacroApp() {
   const updateCal = (id) => {
     handleCalculation(Number(weight) * Number(id));
   };
-  const initialWeight = [
-    {
-      carb: 0,
-      carbAdjusted: 0,
-      protein: 0,
-      proteinAdjusted: 0,
-      fat: 0,
-      fatAdjusted: 0,
-      carbPercent: 0,
-      proteinPercent: 0,
-      fatPercent: 0,
-    },
-  ];
-  const [totals, setTotals] = useState(initialWeight);
+  // const initialWeight = [
+  //   {
+  //     carb: 0,
+  //     carbAdjusted: 0,
+  //     protein: 0,
+  //     proteinAdjusted: 0,
+  //     fat: 0,
+  //     fatAdjusted: 0,
+  //     carbPercent: 0,
+  //     proteinPercent: 0,
+  //     fatPercent: 0,
+  //   },
+  // ];
+  //4th state (shows correct state on 2nd click)
+  // const [totals, setTotals] = useState(initialWeight);
   const adjustments = [
     {
       carbAdjusted: 0,
@@ -50,6 +51,7 @@ function MacroApp() {
       fatAdjusted: 0,
     },
   ];
+  //4th state (working)
   const [adjustedMacros, adjustMacros] = useState(adjustments);
   const updateMacros = (carb, protein, fat, meals) => {
     adjustMacros([
@@ -66,11 +68,9 @@ function MacroApp() {
       carb: undefined,
       protein: undefined,
       fat: undefined,
-      carbPercent: undefined,
-      proteinPercent: undefined,
-      fatPercent: undefined,
     },
   ];
+  const [totals, setTotals] = useState(initialTotalsMacros);
   const updateAll = (total, macro) => {
     if (initialTotalsMacros[0].hasOwnProperty(macro)) {
       initialTotalsMacros[0][`${macro}`] = Number(total);
@@ -84,6 +84,7 @@ function MacroApp() {
   const initialRemainingOption = JSON.parse(
     window.localStorage.getItem("remaining") || `${initialRemaining}`
   );
+  //6th state (working)
   const [remaining, setRemaining] = useState(initialRemainingOption);
   const handleMacro = (totalRemaining, macro) => {
     if (initialRemaining[0].hasOwnProperty(macro)) {
@@ -108,6 +109,7 @@ function MacroApp() {
   const initialTotalsOption = JSON.parse(
     window.localStorage.getItem("storedTotals") || `${initialTotals}`
   );
+  //7th state  (not showing correct state until 3rd for each macro, but goal and weight work on first)
   const [storedTotals, setStoredTotals] = useState(initialTotalsOption);
   const handleStoredTotal = (total, macro) => {
     if (initialTotals[0].hasOwnProperty(macro)) {
@@ -130,6 +132,7 @@ function MacroApp() {
   const initialPercentagesOption = JSON.parse(
     window.localStorage.getItem("storedPercentages") || `${initialPercentages}`
   );
+  //8th state (last state)
   const [storedPercentages, setStoredPercent] = useState(
     initialPercentagesOption
   );
