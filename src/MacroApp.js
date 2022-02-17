@@ -66,11 +66,9 @@ function MacroApp() {
     }
   };
   //set remaining amt storage to be passed down to all components
-  const initialRemaining = [
-    { Carb: undefined, Protein: undefined, Fat: undefined },
-  ];
+  const initialRemaining = JSON.stringify([{ Carb: 0, Protein: 0, Fat: 0 }]);
   const initialRemainingOption = JSON.parse(
-    window.localStorage.getItem("remaining") || `${initialRemaining}`
+    window.localStorage.getItem("remaining") || initialRemaining
   );
   //6th state (working)
   const [remaining, setRemaining] = useState(initialRemainingOption);
@@ -82,21 +80,23 @@ function MacroApp() {
     }
   };
   useEffect(() => {
-    window.localStorage.setItem("remaining", JSON.stringify(remaining));
+    JSON.stringify(remaining) === remaining
+      ? window.localStorage.setItem("remaining", remaining)
+      : window.localStorage.setItem("remaining", JSON.stringify(remaining));
   }, [remaining]);
 
   //set totals in localstorage
-  const initialTotals = [
+  const initialTotals = JSON.stringify([
     {
-      Carb: undefined,
-      Protein: undefined,
-      Fat: undefined,
-      Goal: undefined,
-      Weight: undefined,
+      Carb: 0,
+      Protein: 0,
+      Fat: 0,
+      Goal: 0,
+      Weight: 0,
     },
-  ];
+  ]);
   const initialTotalsOption = JSON.parse(
-    window.localStorage.getItem("storedTotals") || `${initialTotals}`
+    window.localStorage.getItem("storedTotals") || initialTotals
   );
   //7th state
   const [storedTotals, setStoredTotals] = useState(initialTotalsOption);
@@ -107,19 +107,24 @@ function MacroApp() {
     }
   };
   useEffect(() => {
-    window.localStorage.setItem("storedTotals", JSON.stringify(storedTotals));
+    JSON.stringify(storedTotals) === storedTotals
+      ? window.localStorage.setItem("storedTotals", storedTotals)
+      : window.localStorage.setItem(
+          "storedTotals",
+          JSON.stringify(storedTotals)
+        );
   }, [storedTotals]);
 
   //set total percentages in storage
-  const initialPercentages = [
+  const initialPercentages = JSON.stringify([
     {
-      Carbpercent: undefined,
-      Proteinpercent: undefined,
-      Fatpercent: undefined,
+      Carbpercent: 0,
+      Proteinpercent: 0,
+      Fatpercent: 0,
     },
-  ];
+  ]);
   const initialPercentagesOption = JSON.parse(
-    window.localStorage.getItem("storedPercentages") || `${initialPercentages}`
+    window.localStorage.getItem("storedPercentages") || initialPercentages
   );
   //8th state (last state)
   const [storedPercentages, setStoredPercent] = useState(
@@ -132,10 +137,12 @@ function MacroApp() {
     }
   };
   useEffect(() => {
-    window.localStorage.setItem(
-      "storedPercentages",
-      JSON.stringify(storedPercentages)
-    );
+    JSON.stringify(storedPercentages) === storedPercentages
+      ? window.localStorage.setItem("storedPercentages", storedPercentages)
+      : window.localStorage.setItem(
+          "storedPercentages",
+          JSON.stringify(storedPercentages)
+        );
   }, [storedPercentages]);
 
   return (
