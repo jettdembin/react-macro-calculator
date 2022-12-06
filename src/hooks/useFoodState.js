@@ -1,7 +1,7 @@
 import useLocalStorageState from "./useLocalStorageState";
 import { v4 as uuidv4 } from "uuid";
 
-export default (initialFoods) => {
+const useFoodState = (initialFoods) => {
   const [foods, setFoods] = useLocalStorageState("foods", initialFoods);
   return {
     foods,
@@ -29,3 +29,5 @@ export default (initialFoods) => {
     },
   };
 };
+
+export default useFoodState;

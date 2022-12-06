@@ -1,8 +1,8 @@
 import React from "react";
 import Paper from "@mui/material/Paper";
-import "./GoalMacro.css";
+import "../styles/GoalMacro.css";
 
-function MealAmount(props) {
+export const MealAmount = (props) => {
   const carb = props.totals[0].carb;
   const protein = props.totals[0].protein;
   const fat = props.totals[0].fat;
@@ -23,6 +23,6 @@ function MealAmount(props) {
       </button>
     </Paper>
   );
-}
+};
 
 export default MealAmount;

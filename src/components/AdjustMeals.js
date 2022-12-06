@@ -1,7 +1,7 @@
 import React from "react";
 import Paper from "@mui/material/Paper";
 import MealAmount from "./MealAmount";
-import "./AdjustMeals.css";
+import "../styles/AdjustMeals.css";
 
 function AdjustMeals(props) {
   return (

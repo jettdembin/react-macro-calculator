@@ -1,6 +1,8 @@
 import React from "react";
+
 import Paper from "@mui/material/Paper";
-import "./GoalMacro.css";
+
+import "../styles/GoalMacro.css";
 
 function GoalMacros(props) {
   return (

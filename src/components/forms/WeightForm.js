@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-function WeightForm(props) {
+const WeightForm = (props) => {
   return (
     <>
       <label>
@@ -14,6 +14,6 @@ function WeightForm(props) {
       </label>
     </>
   );
-}
+};
 
 export default WeightForm;

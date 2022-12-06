@@ -1,5 +1,7 @@
 import React, { useState } from "react";
-import WeightForm from "./WeightForm";
+
+import WeightForm from "./forms/WeightForm";
+
 import GoalOptions from "./GoalOptions";
 import GoalMacro from "./GoalMacro";
 import AdjustMeals from "./AdjustMeals";

@@ -1,10 +1,12 @@
 import React from "react";
+
 import Paper from "@mui/material/Paper";
 import List from "@mui/material/List";
 import Divider from "@mui/material/Divider";
+
 import Food from "./Food";
 
-function FoodList(props) {
+export const FoodList = (props) => {
   if (props.foods.length)
     return (
       <Paper>
@@ -19,5 +21,5 @@ function FoodList(props) {
       </Paper>
     );
   return null;
-}
+};
 export default FoodList;

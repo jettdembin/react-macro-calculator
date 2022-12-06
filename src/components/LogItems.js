@@ -1,13 +1,17 @@
 import React, { useEffect } from "react";
+
 import Paper from "@mui/material/Paper";
-import FoodForm from "./FoodForm";
+
+import FoodForm from "./forms/FoodForm";
+
 import FoodList from "./FoodList";
-import useFoodState from "./hooks/useFoodState";
-import useCalculation from "./hooks/useCalculation";
+
+import useFoodState from "../hooks/useFoodState";
+import useCalculation from "../hooks/useCalculation";
 
 function LogItems(props) {
-  const initialFoods = JSON.parse(window.localStorage.getItem("foods") || []);
-  const { foods, addFood, removeFood, allowEdit } = useFoodState(initialFoods);
+  // const initialFoods = JSON.parse(window.localStorage.getItem("foods") || []);
+  const { foods, addFood, removeFood, allowEdit } = useFoodState([]);
 
   const [remainingCarb, handleCarbDeleted, handleCarbAdded] = useCalculation(
     props.totals[0].carb

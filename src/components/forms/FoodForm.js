@@ -1,9 +1,10 @@
 import React from "react";
 import TextField from "@mui/material/TextField";
 import Paper from "@mui/material/Paper";
-import useFormState from "./hooks/useFormState";
 
-function FoodForm(props) {
+import useFormState from "../../hooks/useFormState";
+
+export const FoodForm = (props) => {
   const [value, handleFoodChange, reset] = useFormState("");
   const [carb, handleProteinChange, resetProtein] = useFormState("");
   const [protein, handleCarbChange, resetCarb] = useFormState("");
@@ -50,6 +51,6 @@ function FoodForm(props) {
       </form>
     </Paper>
   );
-}
+};
 
 export default FoodForm;
