@@ -84,7 +84,7 @@ const App = () => {
   };
 
   return (
-    <Paper
+    <div
       style={{
         padding: 0,
         margin: 0,
@@ -98,30 +98,39 @@ const App = () => {
           <Typography color="inherit">Macro Calculator</Typography>
         </Toolbar>
       </AppBar>
-      <Grid container>
-        <Grid item xs={11} md={8} sm={4}></Grid>
-        <GoalCalculation
-          toggleGoal={toggleGoal}
-          weight={weight}
-          calories={calories}
-          updateCal={updateCal}
-          updateAll={updateAll}
-          updateMacros={updateMacros}
-          adjustedMacros={adjustedMacros}
-          totals={totals}
-          handleChange={handleChange}
-        />
-        <LogItems
-          totals={totals}
-          weight={weight}
-          goal={goal}
-          calories={calories}
-          updateCal={updateCal}
-          updateAll={updateAll}
-          updateMacros={updateMacros}
-        />
-      </Grid>
-    </Paper>
+
+      <main>
+        <Grid
+          container
+          style={{
+            display: "flex",
+            flexDirection: "column",
+          }}
+        >
+          <Grid item xs={11} md={8} sm={4}></Grid>
+          <GoalCalculation
+            toggleGoal={toggleGoal}
+            weight={weight}
+            calories={calories}
+            updateCal={updateCal}
+            updateAll={updateAll}
+            updateMacros={updateMacros}
+            adjustedMacros={adjustedMacros}
+            totals={totals}
+            handleChange={handleChange}
+          />
+          <LogItems
+            totals={totals}
+            weight={weight}
+            goal={goal}
+            calories={calories}
+            updateCal={updateCal}
+            updateAll={updateAll}
+            updateMacros={updateMacros}
+          />
+        </Grid>
+      </main>
+    </div>
   );
 };
 
