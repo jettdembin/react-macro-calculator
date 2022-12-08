@@ -6,11 +6,11 @@ import GoalOptions from "./GoalOptions";
 import GoalMacro from "./GoalMacro";
 import AdjustMeals from "./AdjustMeals";
 
-function GoalCalculation(props) {
-  const [isAdjusted, setAdjusted] = useState(false);
+const GoalCalculation = (props) => {
+  const [isAdjusted, setIsAdjusted] = useState(false);
   const [firstAdjustment, setFirstAdjustment] = useState(false);
   const toggleIsAdjusted = () => {
-    setAdjusted(!isAdjusted);
+    setIsAdjusted(!isAdjusted);
   };
   const toggleIsFirstAdjustment = () => {
     setFirstAdjustment(!firstAdjustment);
@@ -23,7 +23,7 @@ function GoalCalculation(props) {
         {...props}
         isAdjusted={isAdjusted}
         toggleIsAdjusted={toggleIsAdjusted}
-        setAdjusted={setAdjusted}
+        setAdjusted={setIsAdjusted}
         toggleIsFirstAdjustment={toggleIsFirstAdjustment}
         firstAdjustment={firstAdjustment}
       />
@@ -31,7 +31,7 @@ function GoalCalculation(props) {
         {...props}
         isAdjusted={isAdjusted}
         toggleIsAdjusted={toggleIsAdjusted}
-        setAdjusted={setAdjusted}
+        setAdjusted={setIsAdjusted}
         toggleIsFirstAdjustment={toggleIsFirstAdjustment}
         firstAdjustment={firstAdjustment}
       />
@@ -39,12 +39,12 @@ function GoalCalculation(props) {
         {...props}
         isAdjusted={isAdjusted}
         toggleIsAdjusted={toggleIsAdjusted}
-        setAdjusted={setAdjusted}
+        setAdjusted={setIsAdjusted}
         toggleIsFirstAdjustment={toggleIsFirstAdjustment}
         firstAdjustment={firstAdjustment}
       />
     </div>
   );
-}
+};
 
 export default GoalCalculation;

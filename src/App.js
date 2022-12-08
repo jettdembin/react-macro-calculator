@@ -11,40 +11,47 @@ import LogItems from "./components/LogItems";
 
 import useFormState from "./hooks/useFormState";
 
+const initialWeight = [
+  {
+    carb: 0,
+    carbAdjusted: 0,
+    protein: 0,
+    proteinAdjusted: 0,
+    fat: 0,
+    fatAdjusted: 0,
+    carbPercent: 0,
+    proteinPercent: 0,
+    fatPercent: 0,
+  },
+];
+
 const App = () => {
   const [weight, handleChange] = useFormState("");
   const [goal, setGoal] = useState("");
+  const [totals, setTotals] = useState(initialWeight);
+  const [calories, setCalories] = useState(0);
+  const [adjustedMacros, setAdjustMacros] = useState(adjustments);
+
   const toggleGoal = (goal) => {
     switch (goal) {
       case "12":
         setGoal("Cut");
-        break;
+        return;
       case "15":
         setGoal("Maintain");
-        break;
+        return;
       case "18":
         setGoal("Bulk");
-        break;
+        return;
+      default:
+        return;
     }
   };
-  const [calories, handleCalculation] = useState(0);
+
   const updateCal = (id) => {
-    handleCalculation(Number(weight) * Number(id));
+    setCalories(Number(weight) * Number(id));
   };
-  const initialWeight = [
-    {
-      carb: 0,
-      carbAdjusted: 0,
-      protein: 0,
-      proteinAdjusted: 0,
-      fat: 0,
-      fatAdjusted: 0,
-      carbPercent: 0,
-      proteinPercent: 0,
-      fatPercent: 0,
-    },
-  ];
-  const [totals, setTotals] = useState(initialWeight);
+
   const adjustments = [
     {
       carbAdjusted: 0,
@@ -52,9 +59,8 @@ const App = () => {
       fatAdjusted: 0,
     },
   ];
-  const [adjustedMacros, adjustMacros] = useState(adjustments);
   const updateMacros = (carb, protein, fat, meals) => {
-    adjustMacros([
+    setAdjustMacros([
       {
         ...adjustedMacros,
         carbAdjusted: Math.round(carb / meals),
@@ -84,14 +90,13 @@ const App = () => {
   };
 
   return (
-    <div
+    <Paper
       style={{
         padding: 0,
         margin: 0,
         height: "100vh",
         backgroundColor: "#fafafa",
       }}
-      elevation={0}
     >
       <AppBar color="primary" position="static" style={{ height: "64px" }}>
         <Toolbar>
@@ -99,15 +104,8 @@ const App = () => {
         </Toolbar>
       </AppBar>
 
-      <main>
-        <Grid
-          container
-          style={{
-            display: "flex",
-            flexDirection: "column",
-          }}
-        >
-          <Grid item xs={11} md={8} sm={4}></Grid>
+      <main className="p-10 m-0">
+        <div className="flex flex-col">
           <GoalCalculation
             toggleGoal={toggleGoal}
             weight={weight}
@@ -128,9 +126,9 @@ const App = () => {
             updateAll={updateAll}
             updateMacros={updateMacros}
           />
-        </Grid>
+        </div>
       </main>
-    </div>
+    </Paper>
   );
 };
 
