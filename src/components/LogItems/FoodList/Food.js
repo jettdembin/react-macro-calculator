@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import EditFoodForm from "./forms/EditFoodForm";
+import EditFoodForm from "../../forms/EditFoodForm";
 import Paper from "@mui/material/Paper";
 import ListItem from "@mui/material/ListItem";
 import ListItemText from "@mui/material/ListItemText";

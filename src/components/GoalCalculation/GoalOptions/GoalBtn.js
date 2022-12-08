@@ -1,10 +1,10 @@
 import React from "react";
-import Paper from "@mui/material/Paper";
 
-function GoalBtn(props) {
+const GoalBtn = (props) => {
   return (
-    <Paper>
+    <div className="flex justify-center">
       <button
+        className="px-4 py-2 border border-emerald-300"
         onClick={() => {
           props.toggleGoal(props.id);
           props.updateCal(props.id);
@@ -26,8 +26,8 @@ function GoalBtn(props) {
       >
         Calculate
       </button>
-    </Paper>
+    </div>
   );
-}
+};
 
 export default GoalBtn;
