@@ -1,9 +1,9 @@
 import React from "react";
 import Paper from "@mui/material/Paper";
-import MealAmount from "./MealAmount";
-import "../styles/AdjustMeals.css";
+import MealAmount from "./AdjustMeals/MealAmount";
+import "../../styles/AdjustMeals.css";
 
-function AdjustMeals(props) {
+const AdjustMeals = (props) => {
   return (
     <Paper>
       <div className="Adjust-cntr">
@@ -29,6 +29,6 @@ function AdjustMeals(props) {
       </div>
     </Paper>
   );
-}
+};
 
 export default AdjustMeals;

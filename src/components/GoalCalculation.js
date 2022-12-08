@@ -2,9 +2,9 @@ import React, { useState } from "react";
 
 import WeightForm from "./forms/WeightForm";
 
-import GoalOptions from "./GoalOptions";
-import GoalMacro from "./GoalMacro";
-import AdjustMeals from "./AdjustMeals";
+import GoalOptions from "./GoalCalculation/GoalOptions";
+import GoalMacro from "./GoalCalculation/GoalMacro";
+import AdjustMeals from "./GoalCalculation/AdjustMeals";
 
 const GoalCalculation = (props) => {
   const [isAdjusted, setIsAdjusted] = useState(false);

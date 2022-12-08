@@ -4,9 +4,9 @@ import Paper from "@mui/material/Paper";
 import List from "@mui/material/List";
 import Divider from "@mui/material/Divider";
 
-import Food from "./Food";
+import Food from "./FoodList/Food";
 
-export const FoodList = (props) => {
+const FoodList = (props) => {
   if (props.foods.length)
     return (
       <Paper>

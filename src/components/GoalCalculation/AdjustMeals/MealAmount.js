@@ -1,8 +1,8 @@
 import React from "react";
 import Paper from "@mui/material/Paper";
-import "../styles/GoalMacro.css";
+import "../../../styles/GoalMacro.css";
 
-export const MealAmount = (props) => {
+const MealAmount = (props) => {
   const carb = props.totals[0].carb;
   const protein = props.totals[0].protein;
   const fat = props.totals[0].fat;

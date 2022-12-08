@@ -1,7 +1,7 @@
 import React from "react";
-import GoalBtn from "./GoalBtn";
+import GoalBtn from "./GoalOptions/GoalBtn";
 
-function GoalOptions(props) {
+const GoalOptions = (props) => {
   return (
     <section className="Goal-cntr">
       <div className="Goal-wrapper">
@@ -42,6 +42,6 @@ function GoalOptions(props) {
       </div>
     </section>
   );
-}
+};
 
 export default GoalOptions;

@@ -30,7 +30,15 @@ const App = () => {
   const [goal, setGoal] = useState("");
   const [totals, setTotals] = useState(initialWeight);
   const [calories, setCalories] = useState(0);
-  const [adjustedMacros, setAdjustMacros] = useState(adjustments);
+  const [adjustedMacros, setAdjustMacros] = useState({
+    carbAdjusted: 0,
+    proteinAdjusted: 0,
+    fatAdjusted: 0,
+  });
+
+  const bulk = +weight * 18;
+  const maintain = +weight * 15;
+  const shred = +weight * 12;
 
   const toggleGoal = (goal) => {
     switch (goal) {
@@ -49,16 +57,9 @@ const App = () => {
   };
 
   const updateCal = (id) => {
-    setCalories(Number(weight) * Number(id));
+    setCalories(+weight * +id);
   };
 
-  const adjustments = [
-    {
-      carbAdjusted: 0,
-      proteinAdjusted: 0,
-      fatAdjusted: 0,
-    },
-  ];
   const updateMacros = (carb, protein, fat, meals) => {
     setAdjustMacros([
       {

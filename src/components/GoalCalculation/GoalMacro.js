@@ -2,9 +2,9 @@ import React from "react";
 
 import Paper from "@mui/material/Paper";
 
-import "../styles/GoalMacro.css";
+import "../../styles/GoalMacro.css";
 
-function GoalMacros(props) {
+const GoalMacros = (props) => {
   return (
     <Paper>
       <div>
@@ -43,6 +43,6 @@ function GoalMacros(props) {
       </div>
     </Paper>
   );
-}
+};
 
 export default GoalMacros;
