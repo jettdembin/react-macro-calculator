@@ -42,13 +42,13 @@ const App = () => {
 
   const toggleGoal = (goal) => {
     switch (goal) {
-      case "12":
+      case 12:
         setGoal("Cut");
         return;
-      case "15":
+      case 15:
         setGoal("Maintain");
         return;
-      case "18":
+      case 18:
         setGoal("Bulk");
         return;
       default:
